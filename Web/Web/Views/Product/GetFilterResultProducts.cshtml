@@ -1,0 +1,145 @@
+﻿@using Web.Models.Dtos
+@model ProductDto
+@{
+    Model.FilterUrl = "/Urunler/filter";
+
+    var breadcrumbdata = TempData["BreadCrumb"];
+    var page = TempData["Page"];
+    Breadcrumb breadcrumb = new();
+    if (breadcrumbdata != null && page != null)
+    {
+        breadcrumb.Page = page.ToString();
+        breadcrumb.Data = breadcrumbdata as List<string>;
+    }
+
+    List<int> selectedFilterItems = new();
+    if (!string.IsNullOrEmpty(Model.SelectedFilterfeatureDescItems))
+    {
+        var stringFilterItems = Model.SelectedFilterfeatureDescItems.Split(",");
+        for (int i = 0; i < stringFilterItems.Length; i++)
+        {
+            selectedFilterItems.Add(Convert.ToInt32(stringFilterItems[i]));
+        }
+    }
+
+}
+@await Component.InvokeAsync("BreadCrumb", breadcrumb)
+<style>
+    .filtericon {
+        display: none;
+    }
+</style>
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-3 order-1 order-lg-1">
+            @await Component.InvokeAsync("ProductFilter", Model)
+        </div>
+        @if (Model.Products != null && Model.Products.Count > 0)
+        {
+            <div class="col-lg-9 order-2 order-lg-2">
+
+                <div class="masonry-loader masonry-loader-loaded">
+                    <div id="dynamicDiv" class="row products product-thumb-info-list" data-plugin-masonry="" data-plugin-options="{'layoutMode': 'fitRows'}" style="position: relative; height: 1064.39px;">
+                        @foreach (var item in Model.Products)
+                        {
+                            <div class="col-sm-6 col-lg-4 card" style="position: absolute; left: 569.968px; top: 0px;">
+                                <div class="product mb-0">
+                                    <div class="product-thumb-info border-0 mb-3">
+
+                                        <div class="addtocart-btn-wrapper">
+                                            <a href="/" class="text-decoration-none addtocart-btn" title="Teklif Al">
+                                                <i class="icon-briefcase icons"></i>
+                                            </a>
+                                        </div>
+                                        <a href="/Urun/@StringProcess.ClearString(item.Name)/@item.Id">
+                                            <div class="product-thumb-info-image">
+                                                <img alt="@item.Name" class="img-fluid" src="@StaticDetails.GetImage(item.ImagePath)">
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <div>
+                                            @foreach (var itemF in item.FeatureDescriptions)
+                                            {
+                                                <p class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">@itemF.FeatureDesc</p>
+                                            }
+                                            <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
+                                                <a href="/Urun/@StringProcess.ClearString(item.Name)/@item.Id" class="text-color-dark text-color-hover-primary">@item.Name</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        }
+
+                    </div>
+
+                    <div class="bounce-loader"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>
+                </div>
+            </div>
+
+        }
+        else
+        {
+            <div class="col-lg-9 order-2 order-lg-2 card card-border card-border-top bg-color-light  mt-4-5">
+                <div class="card-body">
+                    <h4 class="card-title mb-1 text-4 font-weight-bold">Ürün Bulunamadı</h4>
+                    <p class="card-text">Henüz aradığınız kriterlere sahip ürünümüz bulunmamaktadır.</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script src="~/assets/vendor/jquery/jquery.min.js"></script>
+
+<script>
+    $('#filterbutton').css('display', 'none');
+    var mainUrl = "https://localhost:44396/";
+    var screenwidht = $(window).width();
+    if (992 > screenwidht) {
+        $('#filtericon').css('display', 'block');
+        var filtertitle = document.getElementById('filtertitle');
+        filtertitle.className = "accordion-toggle";
+        filtertitle.setAttribute('data-bs-toggle', 'collapse');
+        filtertitle.setAttribute('data-bs-target', '#collapse1One');
+        filtertitle.setAttribute('aria-expanded', 'false');
+        filtertitle.setAttribute('aria-controls', 'collapse1One');
+        var colapsediv = document.getElementById('collapse1One');
+        colapsediv.className = "collapse";
+    }
+
+     function checkBoxProcess() {
+        var checkedVals = [];
+        var chekedFaetureIds = [];
+        var resetvals = [];
+        $('input:checkbox[name=filterinput]:checked').each(function (e) {
+            var chekedval = $(this).val();
+            var chekedFaetureId = $(this).attr('data-fetureval');
+            checkedVals.push(parseInt(chekedval));
+            chekedFaetureIds.push(parseInt(chekedFaetureId));
+        });
+        if (checkedVals.length > 0) {
+            $('#filterbutton').css('display', 'block');
+            $("#SelectedFilterfeatureDescItems").val(resetvals);
+            $("#SelectedFilterfeatureItems").val(resetvals);
+            $("#SelectedFilterfeatureDescItems").val(checkedVals);
+            $("#SelectedFilterfeatureItems").val(chekedFaetureIds);
+        }
+        else {
+            $("#SelectedFilterfeatureDescItems").val(resetvals);
+            $("#SelectedFilterfeatureItems").val(resetvals);
+            $('#filterbutton').css('display', 'none');
+        }
+    }
+
+    checkBoxProcess();
+
+    $('#filterform input[name="filterinput"]').change('input', function () {
+        checkBoxProcess();
+
+    });
+</script>

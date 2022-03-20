@@ -1,0 +1,87 @@
+﻿@using Web.Models.Dtos
+@{
+    var categorydata = ViewBag.CategoryDatas as List<Category>;
+    var branddata = ViewBag.BrandsDatas as List<FeatureDescription>;
+
+}
+
+
+@* Headremenuleft *@
+<div class="header-column justify-content-center w-auto-mobile w-50 order-3 order-lg-1">
+    <div class="header-nav justify-content-start header-nav-line header-nav-bottom-line">
+        <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-2 header-nav-main-sub-effect-1">
+            <nav class="collapse">
+                <ul class="nav nav-pills" id="mainNav">
+                    <li class="dropdown">
+                        <a class="dropdown-item dropdown-toggle" href="/">
+                            Anasayfa
+                        </a>
+                    </li>
+                    <li class="dropdown dropdown-mega">
+
+                        <a class="dropdown-item dropdown-toggle" href="/Urunler">
+                            Ürünler
+                        </a>
+                        @if (categorydata != null)
+                        {
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="dropdown-mega-content">
+                                        <div class="row">
+                                            @foreach (var itemCat in categorydata)
+                                            {
+                                                <div class="col-lg-3">
+                                                    <span class="dropdown-mega-sub-title">@itemCat.Name</span>
+                                                    <ul class="dropdown-mega-sub-nav">
+                                                        @foreach (var itemSubCat in itemCat.SubCategories)
+                                                        {
+                                                            <li>
+                                                                <a class="dropdown-item" href="/Urunler/@StringProcess.ClearString(itemCat.Name)/@StringProcess.ClearString(itemSubCat.Name)/@itemSubCat.Id">
+                                                                    @itemSubCat.Name
+                                                                </a>
+                                                            </li>
+
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        }
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-item dropdown-toggle" href="/Markalar">
+                            Markalar
+                        </a>
+                        @if (branddata != null)
+                        {
+                            <ul class="dropdown-menu">
+                                @foreach (var itemBrands in branddata)
+                                {
+                                    <li>
+                                        <a class="dropdown-item" href="/Urunler/Marka/@StringProcess.ClearString(itemBrands.FeatureDesc)/@itemBrands.Id">@itemBrands.FeatureDesc</a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </li>
+
+
+                    <li class="dropdown">
+                        <a class="dropdown-item dropdown-toggle" href="/Blog">
+                            Blog
+                        </a>
+                    </li>
+
+
+                </ul>
+            </nav>
+        </div>
+        <button class="btn header-btn-collapse-nav" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</div>

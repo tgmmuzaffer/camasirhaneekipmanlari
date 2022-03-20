@@ -1,0 +1,28 @@
+﻿@using Web.Models.Dtos
+@model Breadcrumb
+
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 align-self-center p-static order-2 text-center">
+                <h1 class="font-weight-bold text-dark">@Model.Page</h1>
+            </div>
+            <div class="col-md-12 align-self-center order-1">
+                <ul class="breadcrumb d-block text-center">
+                    <li><a href="/">Anasayfa</a></li>
+                    @for (int i = 0; i < Model.Data.Count; i++)
+                    {
+                        if (i != Model.Data.Count - 1)
+                        {
+                            <li><a href="@StringProcess.ClearString(Model.Data[i])">@Model.Data[i].ToString()</a></li>
+                        }
+                        else
+                        {
+                            <li class="active">@Model.Data[i].ToString()</li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

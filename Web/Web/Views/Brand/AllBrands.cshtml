@@ -1,0 +1,56 @@
+﻿@using Web.Models.Dtos
+@model List<FeatureDescription>
+@{
+var breadcrumbdata = TempData["BreadCrumb"];
+    var page = TempData["Page"];
+    Breadcrumb breadcrumb = new();
+    if (breadcrumbdata != null && page != null)
+    {
+        breadcrumb.Page = page.ToString();
+        breadcrumb.Data = breadcrumbdata as List<string>;
+    }
+}
+@await Component.InvokeAsync("BreadCrumb", breadcrumb)
+
+
+<div class="row">
+    <div class="col">
+        <h4 class="text-uppercase" style="text-align:center;">Markalar</h4>
+        <div class="owl-carousel owl-theme carousel-center-active-item owl-loaded owl-drag owl-carousel-init" data-plugin-options="{'responsive': {'0': {'items': 1}, '476': {'items': 1}, '768': {'items': 5}, '992': {'items': 7}, '1200': {'items': 7}}, 'autoplay': true, 'autoplayTimeout': 3000, 'dots': false}" style="height: auto;">
+            <div class="owl-stage-outer">
+                <div class="owl-stage" style="transform: translate3d(-1116px, 0px, 0px); transition: all 0.25s ease 0s; width: 3508px;">
+                    @for (int i = 0; i < 2; i++)
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <div class="owl-item cloned" style="width: 159.429px;">
+                                <div>
+                                    @*<img class="img-fluid" src="~/assets/img/logos/logo-3.png" alt="">*@
+                                    <h1><a href="/Urunler/Marka/@StringProcess.ClearString(item.FeatureDesc)/@item.Id" style="text-decoration: none;">@item.FeatureDesc</a></h1>
+                                </div>
+                            </div>
+                        }
+                    }
+
+
+
+
+                </div>
+            </div>
+            <div class="owl-nav disabled">
+                <button type="button" role="presentation" class="owl-prev">
+                </button>
+                <button type="button" role="presentation" class="owl-next">
+                </button>
+            </div>
+            <div class="owl-dots disabled">
+            </div>
+        </div>
+    </div>
+</div>
+
+@* <div class="owl-item active" style="width: 159.429px;">
+    <div>
+    <img class="img-fluid" src="~/assets/img/logos/logo-1.png" alt="">
+    </div>
+    </div>*@

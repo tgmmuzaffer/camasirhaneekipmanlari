@@ -1,0 +1,345 @@
+﻿@using Web.Models.Dtos
+@model ProductDto
+@{
+    var catName = Model.Products.Select(a => a.Category.Name).FirstOrDefault();
+    var catId = Model.Products.Select(a => a.Category.Id).FirstOrDefault();
+    Model.FilterUrl = $"/Urunler/{catName}/filter/{catId}";
+
+    var breadcrumbdata = TempData["BreadCrumb"];
+    var page = TempData["Page"];
+    Breadcrumb breadcrumb = new();
+    if (breadcrumbdata != null && page != null)
+    {
+        breadcrumb.Page = page.ToString();
+        breadcrumb.Data = breadcrumbdata as List<string>;
+    }
+}
+@await Component.InvokeAsync("BreadCrumb", breadcrumb)
+<style>
+    .filtericon {
+        display: none;
+    }
+</style>
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-3 order-1 order-lg-1">
+            @await Component.InvokeAsync("ProductFilter", Model)
+
+            @*<aside class="sidebar">
+            <form action="page-search-results.html" method="get">
+                <div class="input-group mb-3 pb-1">
+                    <input class="form-control text-1" placeholder="Search..." name="s" id="s" type="text">
+                    <button type="submit" class="btn btn-dark text-1 p-2"><i class="fas fa-search m-2"></i></button>
+                </div>
+            </form>
+            @if(Model !=null && Model.Features!= null && Model.Features.Count > 0)
+            {
+                <h3 id="filtertitle" class="card-title mb-3"> Filtre <i id="filtericon" class="icon-arrow-down icons float-end filtericon "></i></h3>
+            }
+            <form id="filterform" method="post" action="/@catName/filter/@catId">
+                <div class="" id="collapse1One">
+                    <input type="hidden" asp-for="SelectedFilterItems" value="" />
+                    @foreach (var item in Model.Features)
+                    {
+                        <div class="col-lg-12 mb-0 mb-lg-0">
+                            <div class="accordion accordion-sm without-bg mb-1" id="accordion_@item.Name">
+                                <div class="card card-default">
+                                    <div class="card-header">
+                                        <h4 class="card-title m-0">
+                                            <a class="accordion-toggle collapsed" data-bs-toggle="collapse" data-bs-parent="#accordion_@item.Name" href="#collapse11_@item.Id" aria-expanded="false">
+                                                @item.Name
+                                                <i class="icon-arrow-down icons float-end"></i>
+                                            </a>
+
+                                        </h4>
+                                        <hr style="margin:0px;" />
+                                    </div>
+                                    <div id="collapse11_@item.Id" class="collapse" style="padding-left:20px;">
+                                        @foreach (var itemFD in item.FeatureDescriptions)
+                                        {
+                                            <div class="checkbox-custom checkbox-default">
+                                                <input name="filterinput" type="checkbox" data-fetureval="@itemFD.FeatureId" value="@itemFD.Id" id="@itemFD.FeatureDesc">
+                                                <label for="@itemFD.FeatureDesc">@itemFD.FeatureDesc</label>
+                                            </div>
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    }
+
+                    <button type="submit" id="filterbutton" class="btn btn-modern btn-sm mb-2 btn-primary btn-outline btn-arrow-effect-1">Uygula<i class="fas fa-arrow-right ms-2"></i></button>
+                </div>
+            </form>
+        </aside>*@
+        </div>
+        @if (Model.Products != null && Model.Products.Count > 0)
+        {
+            <div class="col-lg-9 order-2 order-lg-2">
+
+                <div class="masonry-loader masonry-loader-loaded">
+                    <div id="dynamicDiv" class="row products product-thumb-info-list" data-plugin-masonry="" data-plugin-options="{'layoutMode': 'fitRows'}" style="position: relative; height: 1064.39px;">
+                        @foreach (var item in Model.Products)
+                        {
+                            <div class="col-sm-6 col-lg-4 card" style="position: absolute; left: 569.968px; top: 0px;">
+                                <div class="product mb-0">
+                                    <div class="product-thumb-info border-0 mb-3">
+
+                                        <div class="addtocart-btn-wrapper">
+                                            <a href="/" class="text-decoration-none addtocart-btn" title="Teklif Al">
+                                                <i class="icon-briefcase icons"></i>
+                                            </a>
+                                        </div>
+                                        <a href="/Urun/@StringProcess.ClearString(item.Name)/@item.Id">
+                                            <div class="product-thumb-info-image">
+                                                <img alt="@item.Name" class="img-fluid" src="@StaticDetails.GetImage(item.ImagePath)">
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <div>
+                                            @foreach (var itemF in item.FeatureDescriptions)
+                                            {
+                                                <p class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">@itemF.FeatureDesc</p>
+                                            }
+                                            <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
+                                                <a href="/Urun/@StringProcess.ClearString(item.Name)/@item.Id" class="text-color-dark text-color-hover-primary">@item.Name</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        }
+
+                    </div>
+                    @*<div class="row mt-4">
+                            <div class="col">
+                                <ul class="pagination float-end">
+                                    <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>*@
+                    <div class="bounce-loader"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="col-lg-9 order-2 order-lg-2 card card-border card-border-top bg-color-light mt-4-5">
+                <div class="card-body">
+                    <h4 class="card-title mb-1 text-4 font-weight-bold">Ürün Bulunamadı</h4>
+                    <p class="card-text">Henüz aradığınız kriterlere sahip ürünümüz bulunmamaktadır.</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script src="~/assets/vendor/jquery/jquery.min.js"></script>
+<script>
+    $('#filterbutton').css('display', 'none');
+    var mainUrl = "https://localhost:44396/";
+    var screenwidht = $(window).width();
+    if (992 > screenwidht) {
+        $('#filtericon').css('display', 'block');
+        var filtertitle = document.getElementById('filtertitle');
+        filtertitle.className = "accordion-toggle";
+        filtertitle.setAttribute('data-bs-toggle', 'collapse');
+        filtertitle.setAttribute('data-bs-target', '#collapse1One');
+        filtertitle.setAttribute('aria-expanded', 'false');
+        filtertitle.setAttribute('aria-controls', 'collapse1One');
+        var colapsediv = document.getElementById('collapse1One');
+        colapsediv.className = "collapse";
+    }
+     function checkBoxProcess() {
+        var checkedVals = [];
+        var chekedFaetureIds = [];
+        var resetvals = [];
+        $('input:checkbox[name=filterinput]:checked').each(function (e) {
+            var chekedval = $(this).val();
+            var chekedFaetureId = $(this).attr('data-fetureval');
+            checkedVals.push(parseInt(chekedval));
+            chekedFaetureIds.push(parseInt(chekedFaetureId));
+        });
+        if (checkedVals.length > 0) {
+            $('#filterbutton').css('display', 'block');
+            $("#SelectedFilterfeatureDescItems").val(resetvals);
+            $("#SelectedFilterfeatureItems").val(resetvals);
+            $("#SelectedFilterfeatureDescItems").val(checkedVals);
+            $("#SelectedFilterfeatureItems").val(chekedFaetureIds);
+        }
+        else {
+            $("#SelectedFilterfeatureDescItems").val(resetvals);
+            $("#SelectedFilterfeatureItems").val(resetvals);
+            $('#filterbutton').css('display', 'none');
+        }
+    }
+
+    checkBoxProcess();
+
+
+
+    $('#filterform input[name="filterinput"]').change('input', function () {
+        //var checkedVals = [];
+        //var resetvals = [];
+
+        //$('input:checkbox[name=filterinput]:checked').each(function () {
+        //    var chekedval = $(this).val();
+        //    checkedVals.push(parseInt(chekedval));
+        //});
+        //if (checkedVals.length > 0) {
+        //    $('#filterbutton').css('display', 'block');
+        //    $("#SelectedFilterItems").val(resetvals);
+        //    $("#SelectedFilterItems").val(checkedVals);
+        //}
+        //else {
+        //    $("#SelectedFilterItems").val(resetvals);
+        //    $('#filterbutton').css('display', 'none');
+
+        //}
+
+        checkBoxProcess();
+
+    });
+
+    //$("#filterbutton").click(function () {
+    //    var checkedVals = [];
+    //    $('input:checkbox[name=filterinput]:checked').each(function () {
+    //        var chekedval = $(this).val();
+    //        checkedVals.push(parseInt(chekedval));
+    //    });
+
+
+
+    //    if (checkedVals.length > 0) {
+    //        var categoryName = $('#filterbutton').attr('data-catname-val');
+    //        var catId = $('#filterbutton').attr('data-catId-val');
+    //        var url = '/' + categoryName + '/filter/' + catId;
+    //        $.post(url, { fetureDescIds: checkedVals });
+    //    }
+    //    else {
+    //        return;
+    //    }
+    //});
+
+</script>
+
+@*//$.ajax({
+    //    method: 'POST',
+    //    url: _url,
+    //    data: { fetureDescIds: checkedVals },
+    //    async: true
+    //});
+
+
+
+
+    //$.post(url, { fetureDescIds: checkedVals }, function (result) {
+    //    console.log(result);
+
+    //    var jarray = JSON.parse(result);
+    //    console.log(jarray);
+    //    if (result != 0) {
+    //        $('#dynamicDiv').html("");
+    //        $.each(jarray, function (index) {
+    //            var dynamicDiv = document.getElementById("dynamicDiv");
+
+    //            var name = jarray[index].Name;
+    //            var imagePath = jarray[index].ImagePath;
+    //            var _imgPath = mainUrl + "webpImages/" + imagePath;
+
+
+    //            let div1 = document.createElement("div");
+    //            div1.className = "col-sm-6 col-lg-4 card";
+    //            if (3 % index == 2) {
+    //                div1.setAttribute('style', 'position: absolute; left: 569.968px; top: 0px;');
+    //            }
+    //            else if (3 % index == 1) {
+    //                div1.setAttribute('style', 'position: absolute; left: 569.968px; top: 0px;');
+    //            }
+    //            else if (3 % index == 0) {
+    //                div1.setAttribute('style', 'position: absolute; left: 569.968px; top: 0px;');
+    //            }
+    //            let div2 = document.createElement("div");
+    //            div2.className = "product mb-0";
+
+    //            let div3 = document.createElement("div");
+    //            div3.className = "product-thumb-info border-0 mb-3";
+
+    //            let div4 = document.createElement("div");
+    //            div4.className = "d-flex justify-content-between mb-3";
+
+    //            let div3_1 = document.createElement("div");
+    //            div3_1.className = "addtocart-btn-wrapper";
+
+    //            let a3_2 = document.createElement("a");
+    //            a3_2.href = "/";
+
+    //            let a3_2div = document.createElement("div");
+    //            a3_2div.className = "product-thumb-info-image";
+
+    //            let a3_2div_img = document.createElement("img");
+    //            a3_2div_img.className = "img-fluid";
+    //            a3_2div_img.setAttribute('alt', name);
+    //            a3_2div_img.setAttribute('src', _imgPath);
+
+
+    //            let div3_1a = document.createElement("a");
+    //            div3_1a.className = "text-decoration-none addtocart-btn";
+    //            div3_1a.href = "/";
+    //            div3_1a.setAttribute('title', 'Teklif Al');
+
+    //            let div3_1a_i = document.createElement("i");
+    //            div3_1a_i.className = 'icon-briefcase icons';
+
+    //            let div4_1 = document.createElement('div');
+    //            let div4_1_a;
+    //            $.each(jarray[index].FeatureDescriptions, function (indexFD) {
+    //                div4_1_a = document.createElement("a");
+    //                div4_1_a.className = "d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1";
+    //                div4_1_a.href = "/";
+    //                div4_1_a.textContent = jarray[index].FeatureDescriptions[indexFD].FeatureDesc;
+
+    //            });
+    //            let div4_1_h3 = document.createElement('h3');
+    //            div4_1_h3.className = "text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0";
+
+    //            let div4_1_h3_a = document.createElement("a");
+    //            div4_1_h3_a.className = "text-color-dark text-color-hover-primary";
+    //            div4_1_h3_a.href = "/";
+    //            div4_1_h3_a.textContent = name;
+    //            /////////////////////////////////////////
+
+    //            div3_1a.appendChild(div3_1a_i);
+    //            div3_1.appendChild(div3_1a);
+    //            div3.appendChild(div3_1);
+
+    //            a3_2div.appendChild(a3_2div_img);
+    //            a3_2.appendChild(a3_2div);
+    //            div3.appendChild(a3_2);
+
+    //            div2.appendChild(div3);
+
+    //            div4.appendChild(div4_1);
+    //            div4.appendChild(div4_1_a);
+    //            div4_1_h3.appendChild(div4_1_h3_a);
+    //            div4.appendChild(div4_1_h3);
+
+    //            div2.appendChild(div4);
+    //            div1.appendChild(div2);
+    //            dynamicDiv.appendChild(div1);
+    //        });
+
+    //    }
+    //});*@

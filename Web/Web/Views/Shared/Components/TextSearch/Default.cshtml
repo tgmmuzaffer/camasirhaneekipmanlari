@@ -1,0 +1,22 @@
+﻿@using Web.Models.Dtos
+@model ProductDto
+
+<form action="/Arama" method="post" asp-antiforgery="true">
+    <div class="input-group mb-3 pb-1">
+        <input class="form-control text-1" placeholder="Arama..." type="text" onkeyup="CheckInput()" asp-for="SearchText">
+        <button id="sbutton" type="submit" class="btn btn-dark text-1 p-2 d-none"><i class="fas fa-search m-2"></i></button>
+    </div>
+</form>
+
+<script src="~/assets/vendor/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+    function CheckInput(){
+        var inputval = $( "#SearchText" ).val();
+           if(inputval !=''){
+               $('#sbutton').removeClass('d-none');
+           }
+           else if(inputval ==''){
+               $('#sbutton').addClass('d-none');
+           }
+    }
+</script>

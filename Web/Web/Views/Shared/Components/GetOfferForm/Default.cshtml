@@ -1,0 +1,54 @@
+﻿@using Web.Models.Dtos
+@model Mail
+@{
+    string defaultSubject = "'" + Model.Subject + "' hakkında";
+}
+
+
+<div  class="container py-4">
+
+    <div class="row mb-2">
+        <div  class="col">
+
+            <h2 class="font-weight-bold text-7 mt-2 mb-0">Teklif Al</h2>
+            <p class="mb-4">Ürün ile ilgili tüm soru ve görüşlerinizi bize iletebilrsiniz.</p>
+
+            <form class="contact-form-recaptcha-v3" asp-action="SendMail" asp-controller="Contact" method="POST" asp-antiforgery="true">
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label class="form-label mb-1 text-2" asp-for="Name">İsim</label>
+                        <input asp-for="Name" type="text" data-msg-required="Lütfen isminizi giriniz." maxlength="100" class="form-control text-3 h-auto py-2" required="">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label class="form-label mb-1 text-2" asp-for="EMail">E-Posta</label>
+                        <input asp-for="EMail" type="email" data-msg-required="Lütfen bir e-posta giriniz." data-msg-email="Lütfen geçerli bir e-posta giriniz." maxlength="100" class="form-control text-3 h-auto py-2" required="" placeholder="abc@xyz.com">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label class="form-label mb-1 text-2" asp-for="Subject">Konu</label>
+                        <input asp-for="Subject" type="text" value="@defaultSubject" data-msg-required="Lütfen alanı doldurunuz." maxlength="100" maxlength="100" class="form-control text-3 h-auto py-2" required="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label class="form-label mb-1 text-2">Message</label>
+                        <textarea asp-for="Message" maxlength="5000" data-msg-required="Lütfen alanı doldurunuz." rows="5" class="form-control text-3 h-auto py-2" name="message" required=""></textarea>
+                    </div>
+                </div>
+               
+                <div class="row">
+                     @Html.RecaptchaApiScript()
+                @Html.RecaptchaWidget(renderApiScript: false)
+                    <div class="form-group col mt-sm-3-5">
+                        <input type="submit" value="Gönder" class="btn btn-primary btn-modern" data-loading-text="Loading...">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+</div>
+

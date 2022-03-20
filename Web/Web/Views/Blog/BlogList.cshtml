@@ -1,0 +1,60 @@
+﻿@using Web.Models.Dtos
+@model List<Blog>
+@{
+   
+    var breadcrumbdata = TempData["BreadCrumb"];
+    var page = TempData["Page"];
+    Breadcrumb breadcrumb = new();
+    if (breadcrumbdata != null && page != null)
+    {
+        breadcrumb.Page = page.ToString();
+        breadcrumb.Data = breadcrumbdata as List<string>;
+    }
+}
+@await Component.InvokeAsync("BreadCrumb", breadcrumb)
+<div class="container py-4">
+    <div class="row">
+        <div class="col">
+            <div class="blog-posts">
+
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-4">
+                            <article class="post post-medium border-0 pb-0 mb-5">
+                                <div class="post-image">
+                                    <a href="/Blog/@item.Id">
+                                        <img src="@StaticDetails.GetImage(item.ImagePath)" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="@item.Title">
+                                    </a>
+                                </div>
+
+                                <div class="post-content">
+
+                                    <h2 class="font-weight-semibold text-5 line-height-6 mt-3 mb-2"><a href="/Blog/@item.Id">@item.Title</a></h2>
+                                    <p>@item.ShortDesc</p>
+
+                                    <div class="post-meta">
+                                        <span>
+                                            <i class="far fa-folder"></i>
+                                            @{
+                                                string tags = string.Join("/", item.TagNames);
+                                                <a>@tags</a>
+                                            }
+
+
+                                        </span>
+                                        <span class="d-block mt-2"><a href="/Blog/@item.Id" class="btn btn-xs btn-light text-1 text-uppercase">Oku</a></span>
+                                    </div>
+
+                                </div>
+                            </article>
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

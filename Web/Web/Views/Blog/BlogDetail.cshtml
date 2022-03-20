@@ -1,0 +1,96 @@
+﻿@using System.Web
+@using Web.Models.Dtos
+@model Blog
+@{
+    var day = Model.CreateDate.Day;
+    var dayofweek = Model.CreateDate.DayOfWeek;
+    string tgs = string.Empty;
+    if (Model.TagNames != null && Model.TagNames.Count > 0)
+    {
+        tgs = string.Join(" / ", Model.TagNames);
+
+    }
+    var threeBlogs = ViewBag.ThreeBlog as List<Blog>;
+    var breadcrumbdata = TempData["BreadCrumb"];
+    var page = TempData["Page"];
+    Breadcrumb breadcrumb = new();
+    if (breadcrumbdata != null && page != null)
+    {
+        breadcrumb.Page = page.ToString();
+        breadcrumb.Data = breadcrumbdata as List<string>;
+    }
+}
+@await Component.InvokeAsync("BreadCrumb", breadcrumb)
+
+<div class="container py-4">
+
+    <div class="row">
+        <div class="col">
+            <div class="blog-posts single-post">
+
+                <article class="post post-large blog-single-post border-0 m-0 p-0">
+                    <div class="post-image ms-0">
+                        <p>
+                            <img src="@StaticDetails.GetImage(Model.ImagePath)" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="@Model.Title">
+                        </p>
+                    </div>
+                    <div class="post-date ms-0">
+                        <span class="day">@day</span>
+                        <span class="month">@dayofweek</span>
+                    </div>
+                    <div class="post-content ms-0">
+                        <h2 class="font-weight-semi-bold"><a>@Model.Title</a></h2>
+                    </div>
+                    <div class="post-content ms-0" style="display:inline-block; margin-top:3px;">
+                        <blockquote class="blockquote-primary">
+                            <h4 class="font-weight-semi-bold">@Model.ShortDesc</h4>
+                        </blockquote>
+                        <div class="post-meta">
+                            <span><i class="far fa-user"></i> Yazar: <a>Çamaşırhane Ekipmanları</a> </span>
+                            @if (!string.IsNullOrEmpty(tgs))
+                            {
+                                <span><i class="far fa-folder"></i> <a>@tgs</a></span>
+                            }
+                        </div>
+                        @Html.Raw(HttpUtility.HtmlDecode(Model.Content))
+                    </div>
+                </article>
+            </div>
+            <hr />
+            @if (threeBlogs != null && threeBlogs.Count > 0)
+            {
+                <div class="blog-posts">
+                    <div class="row">
+                         <h4 class="font-weight-semi-bold align-self-center text-center mb-5-5">Okumak İsteyeceğibniz Diğer Bloglar</h4>
+                        @foreach (var item in threeBlogs)
+                        {
+                            <div class="col-md-4">                               
+                                <article class="post post-medium border-0 pb-0 mb-5">
+                                    <div class="post-image">
+                                        <a href="/Blog/@item.Id">
+                                            <img src="@StaticDetails.GetImage(item.ImagePath)" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="@item.Title">
+                                        </a>
+                                    </div>
+                                    <div class="post-content">
+                                        <h2 class="font-weight-semibold text-5 line-height-6 mt-3 mb-2"><a href="/Blog/@item.Id">@item.Title</a></h2>
+                                        <p>@item.ShortDesc</p>
+                                        <div class="post-meta">
+                                            <span>
+                                                <i class="far fa-folder"></i>
+                                                @{
+                                                    string tags = string.Join("/", item.TagNames);
+                                                    <a>@tags</a>
+                                                }
+                                            </span>
+                                            <span class="d-block mt-2"><a href="/Blog/@item.Id" class="btn btn-xs btn-light text-1 text-uppercase">Oku</a></span>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@*//GetInTouch*@
+@using Web.Models.Dtos
+@model Contact
+<div class="col-lg-6">
+
+    <div class="appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="800" style="animation-delay: 800ms;">
+        <h4 class="mt-2 mb-1"><strong>@Model.Name</strong></h4>
+        <ul class="list list-icons list-icons-style-2 mt-2">
+            <li>
+                <i class="fas fa-map-marker-alt top-6"></i>
+                <strong class="text-dark">Address:</strong>
+                @Model.Adress
+            </li>
+            <li>
+                <i class="fas fa-phone top-6"></i>
+                <strong class="text-dark">Tel:</strong>
+                @Model.Phone1
+            </li>
+            <li>
+                <i class="fas fa-envelope top-6"></i>
+                <strong class="text-dark">E-Posta:</strong>
+                <a href="@Model.Email">@Model.Email</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="950" style="animation-delay: 900ms;">
+        <h4 class="pt-5"><strong>Çalışma Saatleri</strong></h4>
+        <ul class="list list-icons list-dark mt-2">
+            <li><i class="far fa-clock top-6"></i> @Model.WorkDay1 : @Model.WorkHour1</li>
+            <li><i class="far fa-clock top-6"></i> @Model.WorkDay2 : @Model.WorkHour2</li>
+            <li><i class="far fa-clock top-6"></i> @Model.WorkDay3 : @Model.WorkHour3</li>
+        </ul>
+    </div>
+    <div class="appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="950" style="animation-delay: 1000ms;">
+        <h4 class="pt-5"> <strong>@Model.ContactTitle</strong></h4>
+        <p class="lead mb-0 text-4"> @Html.Raw(Model.ContactContent)</p>
+    </div>
+</div>

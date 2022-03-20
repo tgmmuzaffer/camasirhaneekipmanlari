@@ -43,9 +43,33 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[5.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "PagedList.Core.Mvc": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "RecaptchaNet": {
+              "target": "Package",
+              "version": "[3.1.0, )"
             }
           },
           "imports": [
@@ -66,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,0 +1,63 @@
+﻿@using Web.Models.Dtos
+@model Contact
+@{
+    var breadcrumbdata = TempData["BreadCrumb"];
+    var page = TempData["Page"];
+    var errorMessage = TempData["ErrorMail"];
+    var successMessage = TempData["SuccessMail"];
+    Breadcrumb breadcrumb = new();
+    if (breadcrumbdata != null && page != null)
+    {
+        breadcrumb.Page = page.ToString();
+        breadcrumb.Data = breadcrumbdata as List<string>;
+    }
+}
+@await Component.InvokeAsync("BreadCrumb", breadcrumb)
+@if (errorMessage != null)
+{
+    <div id="err" class="alert alert-danger"  style="text-align:center;">
+        @errorMessage
+    </div>
+}
+@if (successMessage != null)
+{
+    <div id="succ" class="alert alert-success"  style="text-align:center;">
+        @errorMessage
+    </div>
+}
+<div id="googlemaps" class="google-map mt-0" style="height: 475px; position: relative; overflow: hidden;">
+   @* @Html.Raw(Model.MapAdress)*@
+</div>
+<div class="container">
+
+    <div class="row py-4">
+
+        @await Component.InvokeAsync("ContactForm")
+        @await Component.InvokeAsync("GetInTouch", Model)
+
+
+    </div>
+
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    var error = document.getElementById("err");
+    var success = document.getElementById("succ");
+
+    if (error != null) {
+        function GFG_Fun() {
+            setTimeout(function () {
+                $('#err').hide();
+            }, 3000);
+        };
+        GFG_Fun();
+    }
+    if (success != null) {
+        function GFG_Fun() {
+            setTimeout(function () {
+                $('#succ').hide();
+            }, 6000);
+        };
+        GFG_Fun();
+    }
+</script>

@@ -18,7 +18,7 @@ namespace Web.Controllers
             _blogRepo= blogRepo;
         }
 
-        [Route("Blog")]
+        [Route(template: "Blog")]
         public async Task<IActionResult> BlogList()
         {
             var blog = await _blogRepo.GetList(StaticDetails.getAllBlogs);
@@ -30,7 +30,7 @@ namespace Web.Controllers
             return View(blog);
         }
 
-        [Route("Blog/{Id}")]
+        [Route(template: "Blog/{Id}")]
         public async Task<IActionResult> BlogDetail(int Id)
         {
             var blogdetail = await _blogRepo.Get(StaticDetails.getBlog + Id);

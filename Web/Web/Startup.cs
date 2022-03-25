@@ -1,3 +1,4 @@
+using AspNetCore.SEOHelper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -59,7 +60,7 @@ namespace Web
                 }
             });
             app.UseStaticFiles();
-
+            //app.UseXMLSitemap(env.ContentRootPath);
             app.UseRouting();
 
             app.UseAuthorization();

@@ -387,3 +387,5 @@ C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\re
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Shared\Components\GetOfferForm\Default.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Blog\BlogDetail.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\bin\Debug\net5.0\AspNetCore.SEOHelper.dll
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Home\SitemapXml.cshtml.g.cs

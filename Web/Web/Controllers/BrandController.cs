@@ -19,7 +19,7 @@ namespace Web.Controllers
         }
 
 
-        [Route("Markalar")]
+        [Route(template: "Markalar")]
         public async Task<IActionResult> AllBrands()
         {
             var feature = await _featureRepo.Get(StaticDetails.getFeatureByName + "Marka");

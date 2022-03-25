@@ -4,7 +4,7 @@
     var slider = ViewBag.Slider as List<Slider>;
     var blogs = ViewBag.ThreeBlog as List<Blog>;
     var refrences = ViewBag.Refrences as List<Referance>;
-
+    TempData["Title"] = "Anasayfa";
     string url = string.Empty;
     int i = 1;
 }
@@ -69,85 +69,17 @@
                             <div class="flip-content my-4">
                                 <h4 class="font-weight-bold text-color-light">@item.Name.ToUpper()</h4>
                                 <p class="font-weight-light text-color-light">@item.ShortDesc</p>
-                                <a href="/Urunler/@StringProcess.ClearString(item.Name)/@item.Id" class="btn btn-light btn-modern text-color-dark font-weight-bold">Ürünlere Git</a>
+                                <a href="/Urunler/@StringProcess.GetPath(item.Name)/@item.Id" class="btn btn-light btn-modern text-color-dark font-weight-bold">Ürünlere Git</a>
                             </div>
                         </div>
                     </div>
                 </div>
             }
-
-        </div>
-        <div class="row text-center text-md-start align-items-center mt-4 appear-animation mt-5 animated fadeInRightShorter appear-animation-visible" data-appear-animation="fadeInRightShorter" style="animation-delay: 100ms;">
-            <div class="col-md-7 col-lg-7">
-                <div class="row">
-                    <div class="col-lg-9">
-                        <h2 class="font-weight-bold text-7 mb-3">About Us</h2>
-                        <p class="text-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit massa enim. Nullam id varius nunc.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-7">
-                        <p class="text-2 pe-lg-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc. Vivamus bibendum magna ex, et faucibus lacus.</p>
-                        <a href="#" class="d-inline-flex align-items-center btn btn-dark text-color-light font-weight-bold px-4 btn-py-2 text-2 rounded mt-2 mb-5">LEARN MORE NOW <i class="fa fa-arrow-right ms-2 ps-1 text-3"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-5 col-lg-4 px-5 px-md-3">
-                <img class="img-fluid" src="~/assets/img/generic/generic-corporate-17-2.png" alt="">
-            </div>
         </div>
     </div>
+   
+   
 
-    @if (blogs != null && blogs.Count > 0)
-    {
-        <div class="container">
-            <div class="row mt-4">
-                <div class="col-lg-12 text-center appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;">
-                    <h2 class="font-weight-normal text-6 mt-3 mb-5">Yeni <strong class="font-weight-extra-bold">Bloglar</strong></h2>
-                </div>
-            </div>
-            <div class="row recent-posts pb-4 mb-5 appear-animation animated fadeInRightShorter appear-animation-visible" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
-                @foreach (var itemblog in blogs)
-                {
-                    <div class="col-md-6 col-lg-3">
-                        <article>
-                            <div class="row">
-                                <div class="col-auto pe-0">
-                                    <div class="date">
-                                        <span class="day text-color-dark font-weight-extra-bold">@itemblog.CreateDate.Day</span>
-                                        <span class="month bg-color-primary font-weight-semibold text-color-light text-1">@itemblog.CreateDate.DayOfWeek</span>
-                                    </div>
-                                </div>
-                                <div class="col ps-1">
-                                    <h4 class="line-height-3 text-4"><a href="/Blog/@itemblog.Id" class="text-dark">@itemblog.Title</a></h4>
-                                    <p class="line-height-5 pe-3 mb-1">@itemblog.ShortDesc</p>
-                                    <a class="btn btn-light text-uppercase text-primary text-1 py-2 px-3 mb-1 mt-2" href="/Blog/@itemblog.Id"><strong>OKU</strong><i class="fas fa-chevron-right text-2 ps-2"></i></a>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                }
-            </div>
-        </div>
-    }
-    <div class="container">
-        <div class="row text-center pt-3">
-            <div class="col-md-10 mx-md-auto">
-                <h1 class="word-rotator slide font-weight-bold text-8 mb-3 appear-animation" data-appear-animation="fadeInUpShorter">
-                    <span>Porto is </span>
-                    <span class="word-rotator-words bg-dark">
-                        <b class="is-visible">incredibly</b>
-                        <b>especially</b>
-                        <b>extremely</b>
-                    </span>
-                    <span> beautiful and fully responsive.</span>
-                </h1>
-                <p class="lead appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="300">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat, ante nulla hendrerit arcu, ac tincidunt mauris lacus sed leo.
-                </p>
-            </div>
-        </div>
-    </div>
 
     <section class="section section-custom-map appear-animation lazyload" data-appear-animation="fadeInUpShorter" data-src-bg="~/map.png" style="background-color: transparent; background-position: center 0; background-repeat: no-repeat;">
         <section class="section section-default section-footer">
@@ -183,5 +115,65 @@
                 }
             </div>
         </section>
+    </section>
+     @if (blogs != null && blogs.Count > 0)
+    {
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-lg-12 text-center appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;margin-top:50px;">
+                    <h2 class="font-weight-normal text-6 mt-3 mb-5">Yeni <strong class="font-weight-extra-bold">Bloglar</strong></h2>
+                </div>
+            </div>
+            <div class="row recent-posts pb-4 mb-5 appear-animation animated fadeInRightShorter appear-animation-visible" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
+                @foreach (var itemblog in blogs)
+                {
+                    <div class="col-md-6 col-lg-3">
+                        <article>
+                            <div class="row">
+                                <div class="col-auto pe-0">
+                                    <div class="date">
+                                        <span class="day text-color-dark font-weight-extra-bold">@itemblog.CreateDate.Day</span>
+                                        <span class="month bg-color-primary font-weight-semibold text-color-light text-1">@itemblog.CreateDate.DayOfWeek</span>
+                                    </div>
+                                </div>
+                                <div class="col ps-1">
+                                    <h4 class="line-height-3 text-4"><a href="/Blog/@itemblog.Id" class="text-dark">@itemblog.Title</a></h4>
+                                    <p class="line-height-5 pe-3 mb-1">@itemblog.ShortDesc</p>
+                                    <a class="btn btn-light text-uppercase text-primary text-1 py-2 px-3 mb-1 mt-2" href="/Blog/@itemblog.Id"><strong>OKU</strong><i class="fas fa-chevron-right text-2 ps-2"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+     <section class="parallax section section-text-light section-parallax section-center py-0" data-plugin-parallax="" data-plugin-options="{'speed': 1.5, 'scrollableParallax': true, 'scrollableParallaxMinWidth': 991, 'startOffset': 10, 'cssProperty': 'width', 'cssValueStart': 40, 'cssValueEnd': 100, 'cssValueUnit': 'vw'}" data-image-src="mainpageblog1.webp">
+        <div class="d-flex justify-content-center">
+            <div class="scrollable-parallax-wrapper" style="background-image: url(&quot;mainpageblog1.webp&quot;); background-size: cover; background-position: center center; background-attachment: fixed; transition: width 200ms ease 0s; width: 100vw;">
+                <div class="container py-5 my-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <h4  style="color:#525252">Centered</h4>
+
+                            <div data-plugin-readmore="" data-plugin-options="{'buttonOpenLabel' : 'Read More <i class=\' fas fa-chevron-down text-2 ms-1\'> </i>', 'buttonCloseLabel': 'Read Less <i class=\'fas fa-chevron-up text-2 ms-1\'></i>', 'align': 'center'}" class="position-relative" style="height: 110px; overflow: hidden; max-height: none;">
+                                @{
+                                    for (var k = 0; k < 20; k++)
+                                    {
+                                         <p style="color:#525252">Lorem ipsum dolor, sit amet consectetur adipisicing, elit. Totam placeat dolores, minima voluptas quo eos, repellat delectus inventore velit. Nulla placeat eius in, alias architecto magnam aliquid debitis adipisci voluptate. Lorem ipsum, dolor, sit amet consectetur adipisicing elit. Voluptate, aut. Aspernatur sapiente ad quod perspiciatis pariatur necessitatibus, omnis, labore dolore minus expedita, suscipit rerum vitae repellendus quia at aperiam laborum!</p>
+                                <p  style="color:#525252">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis iusto odit quidem commodi voluptates vitae dolores temporibus itaque labore cumque nobis animi facilis, quod, nisi laboriosam sit. Veritatis tenetur, commodi.</p>
+                                    }
+                                }
+                               
+                                <div class="readmore-button-wrapper text-center" style="position: absolute; bottom: 0px; left: 0px; width: 100%; z-index: 2;">
+                                    <a href="#" class="text-decoration-none">Read More <i class="fas fa-chevron-down text-2 ms-1"></i></a>
+                                </div>
+                                <div class="readmore-overlay" style="background: linear-gradient(rgba(2, 0, 36, 0) 0%, rgb(255, 255, 255) 100%); position: absolute; bottom: 0px; left: 0px; width: 100%; height: 100px; z-index: 1;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </div>

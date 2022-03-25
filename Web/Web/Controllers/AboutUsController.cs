@@ -19,7 +19,7 @@ namespace Web.Controllers
         }
 
 
-        [Route("/Hakkimizda")]
+        [Route(template: "/Hakkimizda")]
         public async Task<IActionResult> AboutUs()
         {
             var aboutUsData = await _aboutUsRepo.Get(StaticDetails.getAboutUs);

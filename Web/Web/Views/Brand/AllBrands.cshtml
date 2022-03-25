@@ -1,8 +1,9 @@
 ﻿@using Web.Models.Dtos
 @model List<FeatureDescription>
 @{
-var breadcrumbdata = TempData["BreadCrumb"];
+    var breadcrumbdata = TempData["BreadCrumb"];
     var page = TempData["Page"];
+    TempData["Title"] = page;
     Breadcrumb breadcrumb = new();
     if (breadcrumbdata != null && page != null)
     {
@@ -31,10 +32,6 @@ var breadcrumbdata = TempData["BreadCrumb"];
                             </div>
                         }
                     }
-
-
-
-
                 </div>
             </div>
             <div class="owl-nav disabled">

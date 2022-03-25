@@ -17,7 +17,7 @@ namespace Web.Controllers
          * burada cookiye ekleme çıkarma işlemleri yapılacak 
          * robot.txt ile bu rotanı indexlenmemesi sağlanmalı
          */
-        [Route("getproductInfo")]
+        [Route(template: "getproductInfo")]
         public IActionResult Index()
         {
             return Json(0);

@@ -15,11 +15,13 @@ namespace Web.Models
 
 
 
-        public static string mainUrl = "https://localhost:44396/";
+        //public static string mainUrl = "https://localhost:44396/";
+        public static string mainUrl = "https://ce-api.camasirhaneekipmanlari.com/";
         //image
         public static string image = "webpImages/";
         //categories
         public static string getCategory = mainUrl + "api/category/getCategory/";
+        public static string getCategoryByName = mainUrl + "api/category/getCategoryByName/";
         public static string getAllCategories = mainUrl + "api/category/getAllCategories";
         public static string getAllCategoriesName = mainUrl + "api/category/getAllCategoriesName";
         //product

@@ -8,6 +8,7 @@
 
     var breadcrumbdata = TempData["BreadCrumb"];
     var page = TempData["Page"];
+    TempData["Title"] = page;
     var errorMessage = TempData["ErrorMail"];
     var successMessage = TempData["SuccessMail"];
     Breadcrumb breadcrumb = new();

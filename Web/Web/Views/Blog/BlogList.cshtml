@@ -1,9 +1,10 @@
 ﻿@using Web.Models.Dtos
 @model List<Blog>
 @{
-   
+
     var breadcrumbdata = TempData["BreadCrumb"];
     var page = TempData["Page"];
+    TempData["Title"] = page;
     Breadcrumb breadcrumb = new();
     if (breadcrumbdata != null && page != null)
     {

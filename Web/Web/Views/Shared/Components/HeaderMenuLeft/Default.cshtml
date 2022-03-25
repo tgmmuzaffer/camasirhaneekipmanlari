@@ -36,7 +36,7 @@
                                                         @foreach (var itemSubCat in itemCat.SubCategories)
                                                         {
                                                             <li>
-                                                                <a class="dropdown-item" href="/Urunler/@StringProcess.ClearString(itemCat.Name)/@StringProcess.ClearString(itemSubCat.Name)/@itemSubCat.Id">
+                                                                <a class="dropdown-item" href="/Urunler/@StringProcess.GetPath(itemCat.Name)/@StringProcess.GetPath(itemSubCat.Name)/@itemSubCat.Id">
                                                                     @itemSubCat.Name
                                                                 </a>
                                                             </li>
@@ -62,7 +62,7 @@
                                 @foreach (var itemBrands in branddata)
                                 {
                                     <li>
-                                        <a class="dropdown-item" href="/Urunler/Marka/@StringProcess.ClearString(itemBrands.FeatureDesc)/@itemBrands.Id">@itemBrands.FeatureDesc</a>
+                                        <a class="dropdown-item" href="/Urunler/Marka/@StringProcess.GetPath(itemBrands.FeatureDesc)/@itemBrands.Id">@itemBrands.FeatureDesc</a>
                                     </li>
                                 }
                             </ul>

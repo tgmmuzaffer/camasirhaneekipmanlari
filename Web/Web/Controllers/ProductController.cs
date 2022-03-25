@@ -17,14 +17,16 @@ namespace Web.Controllers
     {
         private readonly IProductRepo _productRepo;
         private readonly IFeatureRepo _featureRepo;
+        private readonly ICategoryRepo _categoryRepo;
 
-        public ProductController(IMemoryCache memoryCache, IProductRepo productRepo, IFeatureRepo featureRepo) : base(memoryCache)
+        public ProductController(IMemoryCache memoryCache, IProductRepo productRepo, IFeatureRepo featureRepo ,ICategoryRepo categoryRepo) : base(memoryCache)
         {
             _productRepo = productRepo;
             _featureRepo = featureRepo;
+            _categoryRepo = categoryRepo;
         }
 
-        [Route("/Urunler")]
+        [Route(template: "/Urunler")]
         public async Task<IActionResult> Products()
         {
             var cacheValue = GetCacheDataProduct(GetCacheKey());
@@ -82,13 +84,17 @@ namespace Web.Controllers
 
         }
 
-        [Route("/Urunler/{categoryName}/{Id}")]
+        [Route(template: "/Urunler/{categoryName}/{Id}")]
         public async Task<IActionResult> GetProductsByCategoryId(string categoryName, int Id)
         {
             var cacheValue = GetCacheDataProduct(GetCacheKey());
             if (cacheValue == null || cacheValue.Products.Count == 0)
             {
                 ProductDto productDto = new();
+                if(Id <= 0)
+                {
+                    var cat = await _categoryRepo.Get(StaticDetails.getCategoryByName + categoryName);
+                }
                 productDto.Products = await _productRepo.GetProductsWithcategoryFilter(StaticDetails.getProductsByCatId + Id);
                 productDto.Features = await _featureRepo.GetList(StaticDetails.getAllFeatures);
                 AddSeo(productDto);
@@ -109,7 +115,6 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        //[Route("/{categoryName}/filter/{catId}")]
         [Route("/Urunler/{categoryName}/filter/{catId}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> GetFilterResultCateory(string categoryName, int catId, ProductDto productDto)
@@ -137,7 +142,7 @@ namespace Web.Controllers
             return View(GetFilteredData(cacheValue));
         }
 
-        [Route("/Urunler/{categoryName}/{subcategoryName}/{Id}")]
+        [Route(template: "/Urunler/{categoryName}/{subcategoryName}/{Id}")]
         public async Task<IActionResult> GetProductsBySubCategoryId(string categoryName, string subcategoryName, int Id)
         {
             var cacheValue = GetCacheDataProduct(GetCacheKey());
@@ -150,7 +155,7 @@ namespace Web.Controllers
                 string key = GetCacheKey();
                 AddCacheDataProduct(key, productDto);
                 #region BreadCrumb
-                TempData["BreadCrumb"] = new List<string> { "Ürünler", categoryName, subcategoryName };
+                TempData["BreadCrumb"] = new List<string> { "Ürünler",  subcategoryName.Replace("-"," ") };
                 TempData["Page"] = "Ürünler";
                 #endregion
                 return View(productDto);
@@ -164,19 +169,19 @@ namespace Web.Controllers
             return View(cacheValue);
         }
 
-        [Route("/Urun/{Name}/{Id}")]
-        public async Task<IActionResult> GetProductDetail(int Id)
+        [Route(template: "/Urun/{name}/{Id}")]
+        public async Task<IActionResult> GetProductDetail(string name ,int Id)
         {
             var product = await _productRepo.GetProduct(StaticDetails.getProduct + Id);
             #region BreadCrumb
-            TempData["BreadCrumb"] = new List<string> { "Ürünler" };
-            TempData["Page"] = "Ürünler";
+            TempData["BreadCrumb"] = new List<string> { "Ürünler",name };
+            TempData["Page"] = name;
             #endregion
 
             return View(product);
         }
 
-        [Route("/Urunler/Marka/{brandName}/{Id}")]
+        [Route(template: "/Urunler/Marka/{brandName}/{Id}")]
         public async Task<IActionResult> GetProductByBrandId(string brandName, int Id)
         {
             ProductDto productDto = new();

@@ -16,7 +16,7 @@ namespace Web.Models
 
 
         //public static string mainUrl = "https://localhost:44396/";
-        public static string mainUrl = "https://ce-api.camasirhaneekipmanlari.com/";
+        public static string mainUrl = "https://api.camasirhaneekipmanlari.com/";
         //image
         public static string image = "webpImages/";
         //categories

@@ -58,17 +58,17 @@
             @foreach (var item in categories)
             {
                 <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="card flip-card flip-card-3d bg-transparent text-center rounded-0">
+                    <div class="card flip-card flip-card-3d bg-transparent text-center rounded-0" itemscope="" itemtype="https://schema.org/WebPage">
                         <div class="flip-front p-5">
                             <div class="flip-content my-4">
                                 <img src="@StaticDetails.GetImage(item.ImagePath)" style=" height:90px;" />
-                                <h4 class="font-weight-bold text-color-primary text-4">@item.Name.ToUpper()</h4>
+                                <h4 class="font-weight-bold text-color-primary text-4" itemprop="name">@item.Name.ToUpper()</h4>
                             </div>
                         </div>
                         <div class="flip-back d-flex align-items-center p-5" style="background-image: url(@StaticDetails.GetImage(item.ImagePath)); background-size: cover; background-position: center; background-color:#1C658C;">
                             <div class="flip-content my-4">
                                 <h4 class="font-weight-bold text-color-light">@item.Name.ToUpper()</h4>
-                                <p class="font-weight-light text-color-light">@item.ShortDesc</p>
+                                <p class="font-weight-light text-color-light" itemprop="description">@item.ShortDesc</p>
                                 <a href="/Urunler/@StringProcess.GetPath(item.Name)/@item.Id" class="btn btn-light btn-modern text-color-dark font-weight-bold">Ürünlere Git</a>
                             </div>
                         </div>

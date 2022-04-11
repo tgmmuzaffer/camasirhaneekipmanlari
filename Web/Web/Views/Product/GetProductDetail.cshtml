@@ -8,6 +8,7 @@
 
     var breadcrumbdata = TempData["BreadCrumb"];
     var page = TempData["Page"];
+    string _page = page.ToString();
     TempData["Title"] = page;
     var errorMessage = TempData["ErrorMail"];
     var successMessage = TempData["SuccessMail"];
@@ -18,64 +19,71 @@
         breadcrumb.Data = breadcrumbdata as List<string>;
     }
 }
-<style>
-    html {
-        scroll-behavior: smooth;
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+<div itemscope="" itemtype="https://schema.org/WebPage">
+    <span style="display:none;">@_page</span>
+
+    @await Component.InvokeAsync("BreadCrumb", breadcrumb)
+    @if (errorMessage != null)
+    {
+        <div id="err" class="alert alert-danger" style="text-align:center;">
+            @errorMessage
+
+        </div>
     }
-</style>
-@await Component.InvokeAsync("BreadCrumb", breadcrumb)
-@if (errorMessage != null)
-{
-    <div id="err" class="alert alert-danger" style="text-align:center;">
-        @errorMessage
+    @if (successMessage != null)
+    {
+        <div id="succ" class="alert alert-success" style="text-align:center;">
+            @errorMessage
 
-    </div>
-}
-@if (successMessage != null)
-{
-    <div id="succ" class="alert alert-success" style="text-align:center;">
-        @errorMessage
-
-    </div>
-}
-<div>
-    <div class="row">
-        <div class="col-md-5 order-md-2 mb-4 mb-lg-0 appear-animation animated fadeInLeftShorter appear-animation-visible" data-appear-animation="fadeInLeftShorter" style="animation-delay: 100ms; text-align: -webkit-center;">
-            <img src="@StaticDetails.GetImage(Model.ImagePath)" class="img-fluid" alt="@Model.Name">
         </div>
-        <div class="col-md-7 order-2" style="align-self:center;">
-            <div class="overflow-hidden" style="margin:10px;">
-                <h2 class="text-color-dark font-weight-bold text-8 mb-0 pt-0 mt-0 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="300" style="animation-delay: 300ms;">@Model.Name</h2>
+    }
+    <div itemtype="https://schema.org/Product" itemscope>
+        <meta itemprop="name" content="@Model.Name" />
+                                    <link itemprop="image" href="@StaticDetails.GetImage(Model.ImagePath)" />
+                                    <meta itemprop="description" content="@Model.ShortDesc" />
+        <div class="row">
+            <div class="col-md-5 order-md-2 mb-4 mb-lg-0 appear-animation animated fadeInLeftShorter appear-animation-visible" data-appear-animation="fadeInLeftShorter" style="animation-delay: 100ms; text-align: -webkit-center;">
+                <img src="@StaticDetails.GetImage(Model.ImagePath)" class="img-fluid" alt="@Model.Name">
             </div>
-            <div class="overflow-hidden mb-3 left-10">
-                <p class="font-weight-bold text-primary text-uppercase mb-0 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="500" style="animation-delay: 500ms; margin:10px;">@Model.ShortDesc</p>
-                <div class="col-lg-6  mb-3 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="500" style="animation-delay: 500ms;">
-                    <blockquote class="blockquote-primary">
-                        <ul class="list list-icons list-icons-sm">
-                            @foreach (var item in Model.FeatureDescriptions)
-                            {
-                                <li><i class="fas fa-caret-right"></i> @item.FeatureDesc</li>
-                            }
-
-                        </ul>
-                    </blockquote>
+            <div class="col-md-7 order-2" style="align-self:center;">
+                <div class="overflow-hidden" style="margin:10px;">
+                    <h2 class="text-color-dark font-weight-bold text-8 mb-0 pt-0 mt-0 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="300" style="animation-delay: 300ms;">@Model.Name</h2>
                 </div>
+                <div class="overflow-hidden mb-3 left-10">
+                    <p class="font-weight-bold text-primary text-uppercase mb-0 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="500" style="animation-delay: 500ms; margin:10px;">@Model.ShortDesc</p>
+                    <div class="col-lg-6  mb-3 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="500" style="animation-delay: 500ms;">
+                        <blockquote class="blockquote-primary">
+                            <ul class="list list-icons list-icons-sm">
+                                @foreach (var item in Model.FeatureDescriptions)
+                                {
+                                    <li><i class="fas fa-caret-right"></i> @item.FeatureDesc</li>
+                                }
+
+                            </ul>
+                        </blockquote>
+                    </div>
+                </div>
+                @if (!string.IsNullOrEmpty(Model.Description))
+                {
+                    <div class="col" @*style="margin:15px;"*@>
+                        <h4 style="margin:10px;">Açıklma</h4>
+                        <blockquote>
+                            @Html.Raw(HttpUtility.HtmlDecode(Model.Description))
+
+                        </blockquote>
+                    </div>
+                }
+                <hr class="solid my-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="900" style="animation-delay: 900ms;">
+                <a href="#offer" class="btn btn-outline btn-primary mb-2" style="float:left;margin:10px;">Teklif Al</a>
             </div>
-            @if (!string.IsNullOrEmpty(Model.Description))
-            {
-                <div class="col" @*style="margin:15px;"*@>
-                    <h4 style="margin:10px;">Açıklma</h4>
-                    <blockquote>
-                        @Html.Raw(HttpUtility.HtmlDecode(Model.Description))
-
-                    </blockquote>
-                </div>
-            }
-            <hr class="solid my-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="900" style="animation-delay: 900ms;">
-            <a href="#offer" class="btn btn-outline btn-primary mb-2" style="float:left;margin:10px;">Teklif Al</a>
         </div>
-    </div>
 
+    </div>
 </div>
 <hr id="offer" class="solid my-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="900" style="animation-delay: 900ms;">
 @await Component.InvokeAsync("GetOfferForm", Model.Name)

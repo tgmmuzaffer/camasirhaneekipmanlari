@@ -13,9 +13,13 @@
         breadcrumb.Page = page.ToString();
         breadcrumb.Data = breadcrumbdata as List<string>;
     }
+    string _page =page.ToString();
 }
 
-<div role="main" class="main">
+<div role="main" class="main" itemscope itemtype="https://schema.org/WebPage">
+    @{
+        <span style="display:none;">@_page</span>
+    }
     @await Component.InvokeAsync("BreadCrumb", breadcrumb);
     <div class="container pt-5">
         <div class="col">
@@ -29,12 +33,13 @@
                                 {
                                     <b class="is-visible">@item</b>
                                 }
-                             
+
                             </span>
                         </h1>
                     </div>
                     <div class="overflow-hidden mb-3">
-                        <p class="lead mb-0 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="200" style="animation-delay: 200ms;">@Model.SubTitle
+                        <p class="lead mb-0 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="200" style="animation-delay: 200ms;" itemprop="description">
+                            @Model.SubTitle
                         </p>
                     </div>
                 </div>
@@ -46,7 +51,7 @@
                 <div class="col-md-7 order-2">
 
 
-                    <div class="lead appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700" style="animation-delay: 700ms;">@Model.Content1</div>
+                    <div class="lead appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700" style="animation-delay: 700ms;" itemprop="description">@Model.Content1</div>
 
                     <hr class="solid my-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="900" style="animation-delay: 900ms;">
 
@@ -72,7 +77,7 @@
 
                 <div class="col-md-7 order-md-2 mb-4 mb-lg-0 appear-animation animated fadeInLeftShorter appear-animation-visible" data-appear-animation="fadeInLeftShorter" style="animation-delay: 100ms;">
 
-                    <div class="lead appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700" style="animation-delay: 700ms;">@Model.Content2</div>
+                    <div class="lead appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700" style="animation-delay: 700ms;" itemprop="description">@Model.Content2</div>
 
                     <hr class="solid my-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="900" style="animation-delay: 900ms;">
 
@@ -85,7 +90,7 @@
                 <div class="col-md-7 order-2">
 
 
-                    <div class="lead appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700" style="animation-delay: 700ms;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam <a href="#">vehicula</a> sit amet enim ac sagittis. Curabitur eget leo varius, elementum mauris eget, egestas quam. Donec ante risus, dapibus sed lectus non, lacinia vestibulum nisi. Morbi vitae augue quam. Nullam ac laoreet libero.</div>
+                    <div class="lead appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700" style="animation-delay: 700ms;" itemprop="description">@Model.Content3</div>
 
                     <hr class="solid my-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="900" style="animation-delay: 900ms;">
 

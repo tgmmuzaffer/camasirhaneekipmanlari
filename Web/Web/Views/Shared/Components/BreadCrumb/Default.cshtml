@@ -8,17 +8,31 @@
                 <h1 class="font-weight-bold text-dark">@Model.Page</h1>
             </div>
             <div class="col-md-12 align-self-center order-1">
-                <ul class="breadcrumb d-block text-center">
-                    <li><a href="/">Anasayfa</a></li>
+                <ul class="breadcrumb d-block text-center" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a href="/" itemprop="item">
+                            <span itemprop="name">Anasayfa</span>
+                        </a>
+                        <meta itemprop="position" content="1" />
+                    </li>
                     @for (int i = 0; i < Model.Data.Count; i++)
                     {
                         if (i != Model.Data.Count - 1)
                         {
-                            <li><a href="/@StringProcess.ClearString(Model.Data[i])">@Model.Data[i].ToString()</a></li>
+                            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <a href="/@StringProcess.ClearString(Model.Data[i])" itemprop="item">
+                                    <span itemprop="name">@Model.Data[i].ToString()</span>
+                                </a>
+                                 <meta itemprop="position" content="@i+2" />
+                            </li>
                         }
                         else
                         {
-                            <li class="active">@Model.Data[i].ToString()</li>
+                            <li class="active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <span itemprop="name">@Model.Data[i].ToString()</span>
+                                 <meta itemprop="position" content="@i+2" />
+                               
+                            </li>
                         }
                     }
                 </ul>

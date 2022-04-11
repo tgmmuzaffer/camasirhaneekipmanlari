@@ -7,6 +7,7 @@
     var breadcrumbdata = TempData["BreadCrumb"];
     var page = TempData["Page"];
     TempData["Title"] = page;
+    string _page = page.ToString();
     Breadcrumb breadcrumb = new();
     if (breadcrumbdata != null && page != null)
     {
@@ -21,8 +22,8 @@
         display: none;
     }
 </style>
-<div class="container">
-
+<div class="container" itemscope="" itemtype="https://schema.org/WebPage">
+    <span style="display:none;">@_page</span>
     <div class="row">
         <div class="col-lg-3 order-1 order-lg-1">
             @await Component.InvokeAsync("ProductFilter", Model)
@@ -35,8 +36,15 @@
                     <div id="dynamicDiv" class="row products product-thumb-info-list" data-plugin-masonry="" data-plugin-options="{'layoutMode': 'fitRows'}" style="position: relative; height: 1064.39px;">
                         @foreach (var item in Model.Products)
                         {
-                            <div class="col-sm-6 col-lg-4 card" style="position: absolute; left: 569.968px; top: 0px;">
-                                <div class="product mb-0">
+                             var brandname = item.ProductSeos.Where(a => a.Feature == "Marka").Select(b => b.FeatureDescription).FirstOrDefault();
+                            <div class="col-sm-6 col-lg-4 card" style="position: absolute; left: 569.968px; top: 0px;" itemtype="https://schema.org/Product" itemscope>
+                                <meta itemprop="name" content="@item.Name" />
+                                <link itemprop="image" href="@StaticDetails.GetImage(item.ImagePath)" />
+                                <meta itemprop="description" content="@item.ShortDesc" />
+                                <div class="product mb-0" itemprop="offers" itemtype="https://schema.org/Offer" itemscope>
+                                    <link itemprop="url" href="/Urun/@StringProcess.ClearString(item.Name)/@item.Id" />
+                                    <meta itemprop="availability" content="https://schema.org/InStock" />
+                                    <meta itemprop="priceCurrency" content="TL" />
                                     <div class="product-thumb-info border-0 mb-3">
 
                                         <div class="addtocart-btn-wrapper">
@@ -51,7 +59,8 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="d-flex justify-content-between mb-3">
+                                    <div class="d-flex justify-content-between mb-3" itemprop="brand" itemtype="https://schema.org/Brand" itemscope>
+                                         <meta itemprop="name" content="@brandname" />
                                         <div>
                                             @foreach (var itemF in item.FeatureDescriptions)
                                             {

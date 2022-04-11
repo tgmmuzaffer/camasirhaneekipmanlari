@@ -45,5 +45,8 @@ namespace Web.Models
             }
             return null;
         }
+
+        public static string TruncateLongString(this string str, int maxLength) =>
+    str?[0..Math.Min(str.Length, maxLength)];
     }
 }

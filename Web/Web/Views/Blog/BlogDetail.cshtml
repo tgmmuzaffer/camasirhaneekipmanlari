@@ -13,6 +13,7 @@
     var threeBlogs = ViewBag.ThreeBlog as List<Blog>;
     var breadcrumbdata = TempData["BreadCrumb"];
     var page = TempData["Page"];
+    string _page = page.ToString();
     TempData["Title"] = page;
     Breadcrumb breadcrumb = new();
     if (breadcrumbdata != null && page != null)
@@ -23,9 +24,10 @@
 }
 @await Component.InvokeAsync("BreadCrumb", breadcrumb)
 
-<div class="container py-4">
+<div class="container py-4" itemscope="" itemtype="https://schema.org/WebPage">
+    <span itemprop="name" style="display:none;">@_page</span>
 
-    <div class="row">
+    <div class="row" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
         <div class="col">
             <div class="blog-posts single-post">
 
@@ -41,6 +43,12 @@
                     </div>
                     <div class="post-content ms-0">
                         <h1 class="font-weight-semi-bold"><a>@Model.Title</a></h1>
+                        <h2 style="display:none;" itemprop="headline">@StringProcess.TruncateLongString(Model.Title, 110)</h2>
+                        <div tyle="display:none;" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                            <img itemprop="url" src="@StaticDetails.GetImage(Model.ImagePath)" />
+                            <meta itemprop="width" content="1920" />
+                            <meta itemprop="height" content="670" />
+                        </div>
                     </div>
                     <div class="post-content ms-0" style="display:inline-block; margin-top:3px;">
                         <blockquote class="blockquote-primary">
@@ -62,10 +70,10 @@
             {
                 <div class="blog-posts">
                     <div class="row">
-                         <h4 class="font-weight-semi-bold align-self-center text-center mb-5-5">Okumak İsteyeceğibniz Diğer Bloglar</h4>
+                        <h4 class="font-weight-semi-bold align-self-center text-center mb-5-5">Okumak İsteyeceğibniz Diğer Bloglar</h4>
                         @foreach (var item in threeBlogs)
                         {
-                            <div class="col-md-4">                               
+                            <div class="col-md-4">
                                 <article class="post post-medium border-0 pb-0 mb-5">
                                     <div class="post-image">
                                         <a href="/Blog/@item.Id">

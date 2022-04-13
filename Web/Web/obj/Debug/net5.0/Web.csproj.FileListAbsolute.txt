@@ -289,6 +289,7 @@ C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\bin\Debug\net5.0\re
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\bin\Debug\net5.0\refs\WindowsBase.dll
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\bin\Debug\net5.0\Web.Views.dll
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\bin\Debug\net5.0\Web.Views.pdb
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\bin\Debug\net5.0\AspNetCore.SEOHelper.dll
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\bin\Debug\net5.0\MailKit.dll
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
@@ -350,11 +351,13 @@ C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\We
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Web.TagHelpers.output.cache
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Web.RazorCoreGenerate.cache
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\AboutUs\AboutUs.cshtml.g.cs
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Blog\BlogDetail.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Blog\BlogList.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Brand\AllBrands.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Contact\GetContact.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Error\Notfound.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Home\SitemapXml.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Product\GetFilterResultCateory.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Product\GetFilterResultProducts.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Product\GetProductByBrandId.cshtml.g.cs
@@ -365,7 +368,9 @@ C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Ra
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Product\SearchByText.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Shared\Components\BreadCrumb\Default.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Shared\Components\ContactForm\Default.cshtml.g.cs
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Shared\Components\GetInTouch\Default.cshtml.g.cs
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Shared\Components\GetOfferForm\Default.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Shared\Components\HeaderMenuLeft\Default.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Shared\Components\HeaderMenuRight\Default.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Shared\Components\HomePageText\Default.cshtml.g.cs
@@ -384,8 +389,3 @@ C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\re
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Web.pdb
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Web.genruntimeconfig.cache
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\ref\Web.dll
-C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Shared\Components\GetOfferForm\Default.cshtml.g.cs
-C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Blog\BlogDetail.cshtml.g.cs
-C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
-C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\bin\Debug\net5.0\AspNetCore.SEOHelper.dll
-C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Home\SitemapXml.cshtml.g.cs

@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Web.Models;
 using Web.Models.Dtos;
 
@@ -148,6 +150,17 @@ namespace Web.Controllers
             }
             productDto.Products.Clear();
             return productDto;
+        }
+
+
+        public byte[] GetImageWithCache (string imageName)
+        {
+            string url = StaticDetails.mainUrl + StaticDetails.image + imageName;
+            using var file = System.IO.File.OpenRead(url);
+            using var outputStream = new MemoryStream();
+            file.CopyTo(outputStream);
+            var stImage = outputStream.ToArray();
+            return stImage;
         }
     }
 }

@@ -29,7 +29,8 @@ namespace Web
             services.AddControllersWithViews();
             RecaptchaConfigurationManager.SetConfiguration(Configuration);
             services.ConfigureServices();
-            services.AddMemoryCache();
+            services.AddResponseCaching();
+            services.AddMemoryCache(); 
             services.AddHttpClient();
         }
 
@@ -59,6 +60,7 @@ namespace Web
                     await next();
                 }
             });
+            app.UseResponseCaching();
             app.UseStaticFiles();
             //app.UseXMLSitemap(env.ContentRootPath);
             app.UseRouting();

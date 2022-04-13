@@ -19,6 +19,7 @@ namespace Web.Controllers
         }
 
         [Route(template: "Blog")]
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
         public async Task<IActionResult> BlogList()
         {
             var blog = await _blogRepo.GetList(StaticDetails.getAllBlogs);
@@ -31,6 +32,8 @@ namespace Web.Controllers
         }
 
         [Route(template: "Blog/{Id}")]
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any, VaryByQueryKeys = new[] { "Id"})]
+
         public async Task<IActionResult> BlogDetail(int Id)
         {
             var blogdetail = await _blogRepo.Get(StaticDetails.getBlog + Id);

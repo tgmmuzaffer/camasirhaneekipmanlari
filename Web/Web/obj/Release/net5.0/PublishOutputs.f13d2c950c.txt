@@ -2,6 +2,7 @@ C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\Adsız.png
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\custom.css
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\skins\default.css
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\skins\default.min.css
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\skins\skin-app-landing.css
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\skins\skin-architecture-2.css
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\skins\skin-architecture-interior.css
@@ -70,9 +71,13 @@ C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\skins\skin-startup-agency.css
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\skins\skin-wedding.css
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\theme-blog.css
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\theme-blog.min.css
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\theme-elements.css
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\theme-elements.min.css
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\theme-shop.css
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\theme-shop.min.css
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\theme.css
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\theme.min.css
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\img\admin-banner.png
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\img\apple-touch-icon.png
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\img\arrows-dark.png
@@ -2481,6 +2486,7 @@ C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\js\custom.js
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\js\theme.init.js
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\js\theme.js
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\js\theme.min.js
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\js\views\view.contact.js
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\js\views\view.home.js
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\js\views\view.shop.js
@@ -2532,6 +2538,7 @@ C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\vendor\bootstrap\js\bootstrap.min.js
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\vendor\bootstrap\js\bootstrap.min.js.map
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\vendor\circle-flip-slideshow\css\component.css
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\vendor\circle-flip-slideshow\css\component.min.css
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\vendor\circle-flip-slideshow\js\jquery.flipshow.js
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\vendor\circle-flip-slideshow\js\jquery.flipshow.min.js
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\vendor\circle-flip-slideshow\README.txt
@@ -4786,6 +4793,7 @@ C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\vendor\vivus\vivus.min.js.map
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\css\site.css
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\dummylogoref.jpg
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\dummylogoref.webp
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\favicon.ico
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\js\site.js
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap.min.js
@@ -4826,6 +4834,7 @@ C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\Logo.png
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\mainpageblog1.webp
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\map.png
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\map.webp
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\N2.png
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\N_2.png
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\Slider2Blue.webp

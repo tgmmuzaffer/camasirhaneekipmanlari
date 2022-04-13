@@ -36,6 +36,7 @@ namespace Web.Controllers
 
         }
 
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
         public async Task<IActionResult> Index()
         {
            var categories = await _categoryRepo.GetList(StaticDetails.getAllCategoriesName);

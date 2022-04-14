@@ -13,6 +13,7 @@ namespace Web.Components
         {
             _contactRepo = contactRepo;
         }
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
         public async Task<IViewComponentResult> InvokeAsync(string url)
         {
             var contactdata = await _contactRepo.Get(StaticDetails.getContact);

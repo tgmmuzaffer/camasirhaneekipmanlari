@@ -33,7 +33,6 @@ namespace Web.Controllers
 
         [Route(template: "Blog/{Id}")]
         [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any, VaryByQueryKeys = new[] { "Id"})]
-
         public async Task<IActionResult> BlogDetail(int Id)
         {
             var blogdetail = await _blogRepo.Get(StaticDetails.getBlog + Id);

@@ -20,6 +20,7 @@ namespace Web.Controllers
 
 
         [Route(template: "Markalar")]
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
         public async Task<IActionResult> AllBrands()
         {
             var feature = await _featureRepo.Get(StaticDetails.getFeatureByName + "Marka");

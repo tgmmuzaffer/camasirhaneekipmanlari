@@ -22,6 +22,7 @@ namespace Web.Controllers
             _contactRepo = contactRepo;
         }
         [Route(template: "/BizeUlasin")]
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
         public async Task<IActionResult> GetContact()
         {
             var contactdata = await _contactRepo.Get(StaticDetails.getContact);

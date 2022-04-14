@@ -27,17 +27,17 @@
                         <div class="d-flex flex-column align-items-center justify-content-center h-100">
                             <h3 class="position-relative text-color-light text-5 line-height-5 font-weight-medium px-4 mb-2 appear-animation" data-appear-animation="fadeInDownShorter" data-plugin-options="{'minWindowWidth': 0}">
                                 <span class="position-absolute right-100pct top-50pct transform3dy-n50 opacity-3">
-                                    <img src="~/assets/img/slides/slide-title-border.png" class="w-auto appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="250" data-plugin-options="{'minWindowWidth': 0}" alt="" />
+                                    <img data-src="~/assets/img/slides/slide-title-border.png" class="w-auto appear-animation"   data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="250" data-plugin-options="{'minWindowWidth': 0}" alt="" />
                                 </span>
                                 @itemS.SliderName &nbsp; @itemS.Content1
                                 <span class="position-relative">
                                     @itemS.Content2
                                     <span class="position-absolute left-50pct transform3dx-n50 top-0 mt-4">
-                                        <img src="~/assets/img/slides/slide-blue-line.png" class="w-auto appear-animation" data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="1000" data-plugin-options="{'minWindowWidth': 0}" alt="" />
+                                        <img data-src="~/assets/img/slides/slide-blue-line.png" class="w-auto appear-animation"   data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="1000" data-plugin-options="{'minWindowWidth': 0}" alt="" />
                                     </span>
                                 </span>
                                 <span class="position-absolute left-100pct top-50pct transform3dy-n50 opacity-3">
-                                    <img src="~/assets/img/slides/slide-title-border.png" class="w-auto appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="250" data-plugin-options="{'minWindowWidth': 0}" alt="" />
+                                    <img data-src="~/assets/img/slides/slide-title-border.png" class="w-auto appear-animation"   data-appear-animation="fadeInRightShorter" data-appear-animation-delay="250" data-plugin-options="{'minWindowWidth': 0}" alt="" />
                                 </span>
                             </h3>
                             <h1 class="text-color-light font-weight-extra-bold text-12 mb-3 appear-animation" data-appear-animation="blurIn" data-appear-animation-delay="500" data-plugin-options="{'minWindowWidth': 0}">
@@ -61,11 +61,11 @@
                     <div class="card flip-card flip-card-3d bg-transparent text-center rounded-0" itemscope="" itemtype="https://schema.org/WebPage">
                         <div class="flip-front p-5">
                             <div class="flip-content my-4">
-                                <img src="@StaticDetails.GetImage(item.ImagePath)" style=" height:90px;" />
+                                <img data-src="@StaticDetails.GetImage(item.ImagePath)"   style=" height:90px;" />
                                 <h4 class="font-weight-bold text-color-primary text-4" itemprop="name">@item.Name.ToUpper()</h4>
                             </div>
                         </div>
-                        <div class="flip-back d-flex align-items-center p-5" style="background-image: url(@StaticDetails.GetImage(item.ImagePath)); background-size: cover; background-position: center; background-color:#1C658C;">
+                        <div class="flip-back d-flex align-items-center p-5"   style="background-image: url(@StaticDetails.GetImage(item.ImagePath)); background-size: cover; background-position: center; background-color:#1C658C;">
                             <div class="flip-content my-4">
                                 <h4 class="font-weight-bold text-color-light">@item.Name.ToUpper()</h4>
                                 <p class="font-weight-light text-color-light" itemprop="description">@item.ShortDesc</p>
@@ -97,7 +97,7 @@
                                         {
                                             <div class="owl-item" style="width: 164.333px; margin-right: 10px;">
                                                 <div>
-                                                    <img alt="" class="img-fluid rounded" src="~/dummylogoref.webp">
+                                                    <img alt="" class="img-fluid rounded" data-src="~/dummylogoref.webp">
                                                 </div>
                                             </div>
                                         }
@@ -148,9 +148,9 @@
             </div>
         </div>
     }
-     <section class="parallax section section-text-light section-parallax section-center py-0" data-plugin-parallax="" data-plugin-options="{'speed': 1.5, 'scrollableParallax': true, 'scrollableParallaxMinWidth': 991, 'startOffset': 10, 'cssProperty': 'width', 'cssValueStart': 40, 'cssValueEnd': 100, 'cssValueUnit': 'vw'}" data-image-src="mainpageblog1.webp">
+     <section class="parallax section section-text-light section-parallax section-center py-0" data-plugin-parallax="" data-plugin-options="{'speed': 1.5, 'scrollableParallax': true, 'scrollableParallaxMinWidth': 991, 'startOffset': 10, 'cssProperty': 'width', 'cssValueStart': 40, 'cssValueEnd': 100, 'cssValueUnit': 'vw'}" data-image-src="mainpageblog1.webp"  >
         <div class="d-flex justify-content-center">
-            <div class="scrollable-parallax-wrapper" style="background-image: url(&quot;mainpageblog1.webp&quot;); background-size: cover; background-position: center center; background-attachment: fixed; transition: width 200ms ease 0s; width: 100vw;">
+            <div class="scrollable-parallax-wrapper"   style="background-image: url(&quot;mainpageblog1.webp&quot;); background-size: cover; background-position: center center; background-attachment: fixed; transition: width 200ms ease 0s; width: 100vw;">
                 <div class="container py-5 my-5">
                     <div class="row justify-content-center">
                         <div class="col-lg-12">

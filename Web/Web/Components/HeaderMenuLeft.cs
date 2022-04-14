@@ -17,6 +17,7 @@ namespace Web.Components
             _categoryRepo = categoryRepo;
             _featureDescriptionRepo = featureDescriptionRepo;
         }
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var categorydata = await _categoryRepo.GetList(StaticDetails.getAllCategories);

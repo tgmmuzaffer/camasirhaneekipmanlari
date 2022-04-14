@@ -27,6 +27,7 @@ namespace Web.Controllers
         }
 
         [Route(template: "/Urunler")]
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
         public async Task<IActionResult> Products()
         {
             var cacheValue = GetCacheDataProduct(GetCacheKey());
@@ -85,6 +86,7 @@ namespace Web.Controllers
         }
 
         [Route(template: "/Urunler/{categoryName}/{Id}")]
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any, VaryByQueryKeys = new[] { "categoryName", "Id" })]
         public async Task<IActionResult> GetProductsByCategoryId(string categoryName, int Id)
         {
             var cacheValue = GetCacheDataProduct(GetCacheKey());
@@ -143,6 +145,7 @@ namespace Web.Controllers
         }
 
         [Route(template: "/Urunler/{categoryName}/{subcategoryName}/{Id}")]
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any, VaryByQueryKeys = new[] { "categoryName", "subcategoryName", "Id" })]
         public async Task<IActionResult> GetProductsBySubCategoryId(string categoryName, string subcategoryName, int Id)
         {
             var cacheValue = GetCacheDataProduct(GetCacheKey());
@@ -170,6 +173,7 @@ namespace Web.Controllers
         }
 
         [Route(template: "/Urun/{name}/{Id}")]
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any, VaryByQueryKeys = new[] { "name",  "Id" })]
         public async Task<IActionResult> GetProductDetail(string name ,int Id)
         {
             var product = await _productRepo.GetProduct(StaticDetails.getProduct + Id);
@@ -182,6 +186,8 @@ namespace Web.Controllers
         }
 
         [Route(template: "/Urunler/Marka/{brandName}/{Id}")]
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any, VaryByQueryKeys = new[] { "brandName", "Id" })]
+
         public async Task<IActionResult> GetProductByBrandId(string brandName, int Id)
         {
             ProductDto productDto = new();

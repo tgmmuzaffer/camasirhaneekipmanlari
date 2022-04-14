@@ -1,5 +1,6 @@
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\Web.exe
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\Adsız.png
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets.rar
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\custom.css
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\skins\default.css
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\css\skins\default.min.css

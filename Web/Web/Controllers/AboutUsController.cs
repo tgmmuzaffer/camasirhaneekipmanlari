@@ -20,6 +20,7 @@ namespace Web.Controllers
 
 
         [Route(template: "/Hakkimizda")]
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
         public async Task<IActionResult> AboutUs()
         {
             var aboutUsData = await _aboutUsRepo.Get(StaticDetails.getAboutUs);

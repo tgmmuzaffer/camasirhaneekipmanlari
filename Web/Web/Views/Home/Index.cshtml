@@ -22,28 +22,55 @@
             @foreach (var itemS in slider)
             {
                 var imag = StaticDetails.GetImage(itemS.ImageName);
-                <div class="position-relative" data-dynamic-height="['670px','670px','670px','550px','500px']" style="background-image: url(@imag); background-size: cover; background-position: center; height: 670px;">
+           @*     <div class="position-relative lazy" data-dynamic-height="['670px','670px','670px','550px','500px']" style="background-image: url(@imag); background-size: cover; background-position: center; height: 670px;">
                     <div class="container position-relative z-index-1 h-100">
                         <div class="d-flex flex-column align-items-center justify-content-center h-100">
                             <h3 class="position-relative text-color-light text-5 line-height-5 font-weight-medium px-4 mb-2 appear-animation" data-appear-animation="fadeInDownShorter" data-plugin-options="{'minWindowWidth': 0}">
                                 <span class="position-absolute right-100pct top-50pct transform3dy-n50 opacity-3">
-                                    <img data-src="~/assets/img/slides/slide-title-border.png" class="w-auto appear-animation"   data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="250" data-plugin-options="{'minWindowWidth': 0}" alt="" />
+                                    <img data-original="/assets/img/slides/slide-title-border.png" class="w-auto appear-animation lazy"   data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="250" data-plugin-options="{'minWindowWidth': 0}" alt="" />
                                 </span>
                                 @itemS.SliderName &nbsp; @itemS.Content1
                                 <span class="position-relative">
                                     @itemS.Content2
                                     <span class="position-absolute left-50pct transform3dx-n50 top-0 mt-4">
-                                        <img data-src="~/assets/img/slides/slide-blue-line.png" class="w-auto appear-animation"   data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="1000" data-plugin-options="{'minWindowWidth': 0}" alt="" />
+                                        <img src="/assets/img/slides/slide-blue-line.png" class="w-auto appear-animation lazy"   data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="1000" data-plugin-options="{'minWindowWidth': 0}" alt="" />
                                     </span>
                                 </span>
                                 <span class="position-absolute left-100pct top-50pct transform3dy-n50 opacity-3">
-                                    <img data-src="~/assets/img/slides/slide-title-border.png" class="w-auto appear-animation"   data-appear-animation="fadeInRightShorter" data-appear-animation-delay="250" data-plugin-options="{'minWindowWidth': 0}" alt="" />
+                                    <img src="/assets/img/slides/slide-title-border.png" class="w-auto appear-animation lazy"   data-appear-animation="fadeInRightShorter" data-appear-animation-delay="250" data-plugin-options="{'minWindowWidth': 0}" alt="" />
                                 </span>
                             </h3>
                             <h1 class="text-color-light font-weight-extra-bold text-12 mb-3 appear-animation" data-appear-animation="blurIn" data-appear-animation-delay="500" data-plugin-options="{'minWindowWidth': 0}">
                                 @itemS.Content3
                             </h1>
                             <a href="@itemS.Link" class="text-4 text-color-light font-weight-light opacity-7 mb-0 btn btn-outline btn-info mb-2" data-plugin-animated-letters data-plugin-options="{'startDelay': 1000, 'minWindowWidth': 0}">
+                                @itemS.ButtonName
+                            </a>
+                        </div>
+                    </div>
+                </div>*@
+                <div class="position-relative lazy" data-dynamic-height="['670px','670px','670px','550px','500px']" style="background-image: url(@imag); background-size: cover; background-position: center; height: 670px;">
+                    <div class="container position-relative z-index-1 h-100">
+                        <div class="d-flex flex-column align-items-center justify-content-center h-100">
+                            <h3 class="position-relative text-color-light text-5 line-height-5 font-weight-medium px-4 mb-2 appear-animation" data-appear-animation="fadeInDownShorter" data-plugin-options="{'minWindowWidth': 0}">
+                                <span class="position-absolute right-100pct top-50pct transform3dy-n50 opacity-3">
+                                    <img data-original="/assets/img/slides/slide-title-border.png" class="w-auto appear-animation lazy"   data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="250" data-plugin-options="{'minWindowWidth': 0}" alt="" />
+                                </span>
+                                @itemS.SliderName &nbsp; @itemS.Content1
+                                <span class="position-relative">
+                                    @itemS.Content2
+                                   @* <span class="position-absolute left-50pct transform3dx-n50 top-0 mt-4">
+                                        <img src="/assets/img/slides/slide-blue-line.png" class="w-auto appear-animation lazy"   data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="1000" data-plugin-options="{'minWindowWidth': 0}" alt="" />
+                                    </span>*@
+                                </span>
+                               @* <span class="position-absolute left-100pct top-50pct transform3dy-n50 opacity-3">
+                                    <img src="/assets/img/slides/slide-title-border.png" class="w-auto appear-animation lazy"   data-appear-animation="fadeInRightShorter" data-appear-animation-delay="250" data-plugin-options="{'minWindowWidth': 0}" alt="" />
+                                </span>*@
+                            </h3>
+                            <h1 class="text-color-light font-weight-extra-bold text-12 mb-3 appear-animation" data-appear-animation="blurIn" data-appear-animation-delay="300" data-plugin-options="{'minWindowWidth': 0}">
+                                @itemS.Content3
+                            </h1>
+                            <a href="@itemS.Link" class="text-4 text-color-light font-weight-light opacity-7 mb-0 btn btn-outline btn-info mb-2" data-plugin-animated-letters data-plugin-options="{'startDelay': 500, 'minWindowWidth': 0}">
                                 @itemS.ButtonName
                             </a>
                         </div>
@@ -61,11 +88,12 @@
                     <div class="card flip-card flip-card-3d bg-transparent text-center rounded-0" itemscope="" itemtype="https://schema.org/WebPage">
                         <div class="flip-front p-5">
                             <div class="flip-content my-4">
-                                <img data-src="@StaticDetails.GetImage(item.ImagePath)"   style=" height:90px;" />
+                                <img class="lazy" src="@StaticDetails.GetImage(item.ImagePath)"   style=" height:90px;" />
                                 <h4 class="font-weight-bold text-color-primary text-4" itemprop="name">@item.Name.ToUpper()</h4>
                             </div>
                         </div>
-                        <div class="flip-back d-flex align-items-center p-5"   style="background-image: url(@StaticDetails.GetImage(item.ImagePath)); background-size: cover; background-position: center; background-color:#1C658C;">
+                        <div class="flip-back d-flex align-items-center p-5"   style="background-image: url(@StaticDetails.GetImage(item.ImagePath)) ; background-size: cover; background-position: center; background-color:#1C658C;" data-original="">
+                        @*<div class="flip-back d-flex align-items-center p-5 lazy"   style="background-image: url(/assets/img/lazy.png) ; background-size: cover; background-position: center; background-color:#1C658C;" data-original="@StaticDetails.GetImage(item.ImagePath)">*@
                             <div class="flip-content my-4">
                                 <h4 class="font-weight-bold text-color-light">@item.Name.ToUpper()</h4>
                                 <p class="font-weight-light text-color-light" itemprop="description">@item.ShortDesc</p>
@@ -97,7 +125,7 @@
                                         {
                                             <div class="owl-item" style="width: 164.333px; margin-right: 10px;">
                                                 <div>
-                                                    <img alt="" class="img-fluid rounded" data-src="~/dummylogoref.webp">
+                                                    <img alt="" class="img-fluid rounded lazy" src="/dummylogoref.webp">
                                                 </div>
                                             </div>
                                         }

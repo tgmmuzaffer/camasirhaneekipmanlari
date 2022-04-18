@@ -138,10 +138,7 @@
 
   <ItemGroup>
     <Compile Remove="Components\ProductFilterByCategory.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="sitemap.xml" />
+    <Compile Remove="Controllers\GetProductInfoController.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -2089,7 +2086,6 @@
     <None Include="wwwroot\assets\vendor\simple-line-icons\src\svgs\wallet.svg" />
     <None Include="wwwroot\assets\vendor\simple-line-icons\src\svgs\wrench.svg" />
     <None Include="wwwroot\assets\vendor\simple-line-icons\yarn.lock" />
-    <None Include="wwwroot\purified.css" />
   </ItemGroup>
 
   <ItemGroup>

@@ -45,7 +45,7 @@
                         <h1 class="font-weight-semi-bold"><a>@Model.Title</a></h1>
                         <h2 style="display:none;" itemprop="headline">@StringProcess.TruncateLongString(Model.Title, 110)</h2>
                         <div tyle="display:none;" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                            <img itemprop="url" src="@StaticDetails.GetImage(Model.ImagePath)" />
+                            <img itemprop="url" src="@StaticDetails.GetImage(Model.ImagePath)" alt="@Model.ImagePath"/>
                             <meta itemprop="width" content="1920" />
                             <meta itemprop="height" content="670" />
                         </div>

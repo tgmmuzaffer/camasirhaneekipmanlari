@@ -2485,6 +2485,7 @@ C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\img\vimeo-1.jpg
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\img\youtube-1.jpg
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\js\custom.js
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\js\jquery.lazyload.js
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\js\theme.init.js
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\js\theme.js
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\js\theme.min.js

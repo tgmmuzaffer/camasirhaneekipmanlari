@@ -1,6 +1,7 @@
 using AspNetCore.SEOHelper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -52,6 +53,21 @@ namespace Web
             app.Use(async (context, next) =>
             {
                 context.Response.Headers.Add("X-Xss-Protection", "1; mode=block");
+                string path = context.Request.Path;
+
+                if (path.EndsWith(".css") || path.EndsWith(".js") || path.EndsWith(".webp") || path.EndsWith(".png"))
+                {
+                    //Set css and js files to be cached for 7 days
+                    TimeSpan maxAge = new TimeSpan(7, 0, 0, 0);     //7 days
+                    context.Response.Headers.Append("Cache-Control", "max-age=" + maxAge.TotalSeconds.ToString("0"));
+                }               
+                else
+                {
+                    //Request for views fall here.
+                    context.Response.Headers.Append("Cache-Control", "no-cache");
+                    context.Response.Headers.Append("Cache-Control", "private, no-store");
+                }
+
                 await next();
                 if (context.Response.StatusCode == 404 || context.Response.StatusCode == 500)
                 {
@@ -66,7 +82,7 @@ namespace Web
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseXMLSitemap(env.ContentRootPath);
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

@@ -389,3 +389,6 @@ C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\re
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Web.pdb
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Web.genruntimeconfig.cache
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\ref\Web.dll
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Home\Sitemap.cshtml.g.cs
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\bin\Debug\net5.0\package.json
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\bin\Debug\net5.0\package-lock.json

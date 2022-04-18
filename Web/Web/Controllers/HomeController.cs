@@ -36,7 +36,7 @@ namespace Web.Controllers
 
         }
 
-        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
+        //[ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
         public async Task<IActionResult> Index()
         {
            var categories = await _categoryRepo.GetList(StaticDetails.getAllCategoriesName);
@@ -52,15 +52,15 @@ namespace Web.Controllers
 
             return View();
         }
-        [Route("/sitemap.xml")]
-        public IActionResult SitemapXml()
+        [Route("/Sitemap")]
+        public IActionResult Sitemap()
         
         {
             //.Where(ad => ad.AttributeRouteInfo != null && ad.AttributeRouteInfo.Name != null)
 
-            var routes = _actionDescriptorCollectionProvider.ActionDescriptors.Items.ToList();
+            //var routes = _actionDescriptorCollectionProvider.ActionDescriptors.Items.ToList();
               
-            var list = new List<SitemapNode>();
+            //var list = new List<SitemapNode>();
 
             //list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.8, Url = "https://codingwithesty.com/serilog-mongodb-in-asp-net-core", Frequency = SitemapFrequency.Daily });
             //list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.8, Url = "https://codingwithesty.com/logging-in-asp-net-core", Frequency = SitemapFrequency.Yearly });

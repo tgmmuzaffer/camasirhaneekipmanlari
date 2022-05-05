@@ -15,8 +15,10 @@ namespace Web.Models
 
 
 
-        //public static string mainUrl = "https://localhost:44396/";
-        public static string mainUrl = "https://api.camasirhaneekipmanlari.com/";
+        public static string mainUrl = "https://localhost:44396/";
+        //public static string mainUrl = "https://api.camasirhaneekipmanlari.com/";
+        //public static string currentsiteUrl = "https://camasirhaneekipmanlari.com/";
+        public static string currentsiteUrl = "https://localhost:44396/";
         //image
         public static string image = "webpImages/";
         //categories
@@ -25,11 +27,14 @@ namespace Web.Models
         public static string getAllCategories = mainUrl + "api/category/getAllCategories";
         public static string getAllCategoriesName = mainUrl + "api/category/getAllCategoriesName";
         //product
-        public static string getProductsByCatId = mainUrl + "api/product/getProductsByCatId/";
-        public static string getProductsBySubCatId = mainUrl + "api/product/getProductsBySubCatId/";
-        public static string getProductsByFeatureDescId = mainUrl + "api/product/getProductsByFeatureDescId/";
+        public static string getProductsByCatId = mainUrl + "api/product/getPagedProductsByCatId";
+        public static string getProductsBySubCatId = mainUrl + "api/product/getPagedProductsBySubCatId";
+        public static string getProductsByBrand = mainUrl + "api/product/getPagedProductsByBrand/";
+        public static string getAllProductsByBrand = mainUrl + "api/product/getProductsByFeatureDescId/";
         public static string getProduct = mainUrl + "api/product/getProduct/";
-        public static string getAllProducts = mainUrl + "api/product/getAllProducts";
+        public static string getAllProducts = mainUrl + "api/product/getAllProducts/";
+        public static string searchForProducts = mainUrl + "api/product/searchForProducts/";
+        public static string getPagedAllProducts = mainUrl + "api/product/getPagedAllProducts/";
         //slider
         public static string getAllSliders = mainUrl + "api/slider/getAllSliders";
         public static string getAllSlidersIsShow = mainUrl + "api/slider/getAllSliders/";

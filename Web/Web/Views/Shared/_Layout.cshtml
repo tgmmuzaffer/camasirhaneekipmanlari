@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@TempData["Title"]-Çamaşırhane Ekipmanları</title>
+    <title>Çamaşırhane Ekipmanları | @TempData["Title"]</title>
     <meta name="keywords" content="Çamaşırhane Ekipmanları, Çamaşırhane, Sanayi Tipi Yıkama Makinaları, Yarı Endüstriyel Makinalar, Kuru Temizleme Makinaları, Sanayi Tipi Silindir Ütü, Kuru Temizleme, Leke Kimyasalları, Sanayi Tipi Kurutma, Hijyen Bariyerli Yıkama" />
     <meta name="description" content="Çamaşırhane Ekipmanları; Sanayi Tipi ve Yarı Endüstriyel Yıkama, Kurutma Makinaları, Islak ve Kuru Temizleme Ekipmanları, Ütüleme Ekipmanları ve Diğer Tüm Yardımcı Ürünleri En Uygun Fiyata Sizlere Sunar.">
     <meta name="author" content="camasirhaneekipmanlari.com">
@@ -54,14 +54,9 @@
     <link rel="stylesheet" href="~/assets/css/theme-shop.min.css">
     <link rel="stylesheet" href="~/assets/vendor/circle-flip-slideshow/css/component.min.css">
     <link id="skinCSS" rel="stylesheet" href="~/assets/css/skins/default.min.css">
-    @*<link rel="stylesheet" href="~/assets/css/custom.css">*@
     <link rel="canonical" href="https://www.test-web.camasirhaneekipmanlari.com/" />
-    <link rel="canonical" href="https://www.test-web.camasirhaneekipmanlari.com" />
-    <link rel="canonical" href="https://test-web.camasirhaneekipmanlari.com" />
-    <link rel="canonical" href="https://test-web.camasirhaneekipmanlari.com/" />
 
     <script async src="~/assets/vendor/modernizr/modernizr.min.js"></script>
-
 </head>
 <body data-plugin-page-transition>
     <!-- Google Tag Manager (noscript) -->
@@ -122,9 +117,11 @@
             @await Component.InvokeAsync("Footer", url)
         </footer>
     </div>
-
+    @*<script src="~/js/all.js"></script>*@
+ 
     <!-- Vendor -->
     <script src="~/assets/vendor/jquery/jquery.min.js"></script>
+
     <script src="~/assets/vendor/jquery.appear/jquery.appear.min.js"></script>
     <script src="~/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
     <script src="~/assets/vendor/jquery.cookie/jquery.cookie.min.js"></script>
@@ -140,18 +137,12 @@
     <script src="~/assets/vendor/vivus/vivus.min.js"></script>
 
     <!-- Theme Base, Components and Settings -->
-    @*<script src="~/assets/js/theme.js"></script>*@
     <script src="~/assets/js/theme.min.js"></script>
     <script src="~/assets/vendor/circle-flip-slideshow/js/jquery.flipshow.min.js"></script>
-    @*<script src="~/assets/js/views/view.home.js"></script>*@
     <script src="~/assets/js/views/view.home.min.js"></script>
-    @*<script src="~/assets/js/custom.js"></script>*@
-    @*<script src="~/assets/js/views/view.contact.js"></script>*@
     <script src="~/assets/js/views/view.contact.min.js"></script>
-    @*<script src="~/assets/js/theme.init.js"></script>*@
     <script src="~/assets/js/theme.init.min.js"></script>
     <a class="scroll-to-top hidden-mobile" href="#"><i class="fas fa-chevron-up"></i></a>
-    @*<script src="~/assets/js/examples/examples.portfolio.js"></script>*@
     @RenderSection("Scripts", required: false)
 </body>
 </html>

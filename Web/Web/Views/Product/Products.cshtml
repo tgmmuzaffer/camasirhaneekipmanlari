@@ -1,9 +1,7 @@
 ﻿@using Newtonsoft.Json
 @using Web.Models.Dtos
 @model ProductDto
-@{
-    Model.FilterUrl = "/Urunler/filter";
-
+@{   
     var breadcrumbdata = TempData["BreadCrumb"];
     var page = TempData["Page"];
     string _page = page.ToString();
@@ -30,7 +28,7 @@
 
         <div class="row">
             <div class="col-lg-3 order-1 order-lg-1">
-                @await Component.InvokeAsync("ProductFilter", Model)
+                @await Component.InvokeAsync("ProductFilter",Model)
             </div>
             @if (Model.Products != null && Model.Products.Count > 0)
             {
@@ -40,7 +38,6 @@
                         <div id="dynamicDiv" class="row products product-thumb-info-list" data-plugin-masonry="" data-plugin-options="{'layoutMode': 'fitRows'}" style="position: relative; height: 1064.39px;">
                             @foreach (var item in Model.Products)
                             {
-                                var brandname = item.ProductSeos.Where(a => a.Feature == "Marka").Select(b => b.FeatureDescription).FirstOrDefault();
                                 <div class="col-sm-6 col-lg-4 card" style="position: absolute; left: 569.968px; top: 0px;" itemtype="https://schema.org/Product" itemscope>
                                     <meta itemprop="name" content="@item.Name" />
                                     <link itemprop="image" href="@StaticDetails.GetImage(item.ImagePath)" />
@@ -50,22 +47,13 @@
                                         <meta itemprop="availability" content="https://schema.org/InStock" />
                                         <meta itemprop="priceCurrency" content="TL" />
                                         <div class="product-thumb-info border-0 mb-3">
-
-                                            <div class="addtocart-btn-wrapper">
-                                                <a href="/" class="text-decoration-none addtocart-btn" title="Teklif Al">
-                                                    <i class="icon-briefcase icons"></i>
-                                                </a>
-                                            </div>
                                             <a href="/Urun/@StringProcess.ClearString(item.Name)/@item.Id">
                                                 <div class="product-thumb-info-image">
                                                     <img alt="@item.Name" class="img-fluid" src="@StaticDetails.GetImage(item.ImagePath)">
                                                 </div>
                                             </a>
-
-
                                         </div>
                                         <div class="d-flex justify-content-between mb-3" itemprop="brand" itemtype="https://schema.org/Brand" itemscope>
-                                            <meta itemprop="name" content="@brandname" />
                                             <div>
                                                 @foreach (var itemF in item.FeatureDescriptions)
                                                 {
@@ -83,6 +71,8 @@
                             }
 
                         </div>
+                        @await Component.InvokeAsync("Pagination", Model.PagedData)
+
                         <div class="bounce-loader"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>
                     </div>
                 </div>
@@ -102,7 +92,8 @@
 
 <script src="~/assets/vendor/jquery/jquery.min.js"></script>
 <script type="text/javascript">
-    var mainUrl = "https://localhost:44396/";
+    //var mainUrl = StaticDetails.currentsiteUrl;
+
     var screenwidht = $(window).width();
     if (992 > screenwidht) {
         $('#filtericon').css('display', 'block');
@@ -121,7 +112,7 @@
         var chekedFaetureIds = [];
         var resetvals = [];
         $('input:checkbox[name=filterinput]:checked').each(function (e) {
-            console.log("e:.", e.target);
+            console.log("e:.......", e.target);
             var chekedval = $(this).val();
             var chekedFaetureId = $(this).attr('data-fetureval');
             checkedVals.push(parseInt(chekedval));

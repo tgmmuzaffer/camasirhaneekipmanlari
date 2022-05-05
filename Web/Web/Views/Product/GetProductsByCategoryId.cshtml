@@ -1,10 +1,7 @@
 ﻿@using Web.Models.Dtos
 @model ProductDto
 @{
-    var catName = Model.Products.Select(a => a.Category.Name).FirstOrDefault();
-    var catId = Model.Products.Select(a => a.Category.Id).FirstOrDefault();
-    Model.FilterUrl = $"/Urunler/{catName}/filter/{catId}";
-
+    Model.FilterArea = (int)SearchArea.Category;
     var breadcrumbdata = TempData["BreadCrumb"];
     var page = TempData["Page"];
     string _page = page.ToString();
@@ -29,58 +26,6 @@
         <div class="row">
             <div class="col-lg-3 order-1 order-lg-1">
                 @await Component.InvokeAsync("ProductFilter", Model)
-
-                @*<aside class="sidebar">
-                    <form action="page-search-results.html" method="get">
-                    <div class="input-group mb-3 pb-1">
-                    <input class="form-control text-1" placeholder="Search..." name="s" id="s" type="text">
-                    <button type="submit" class="btn btn-dark text-1 p-2"><i class="fas fa-search m-2"></i></button>
-                    </div>
-                    </form>
-                    @if(Model !=null && Model.Features!= null && Model.Features.Count > 0)
-                    {
-                    <h3 id="filtertitle" class="card-title mb-3"> Filtre <i id="filtericon" class="icon-arrow-down icons float-end filtericon "></i></h3>
-                    }
-                    <form id="filterform" method="post" action="/@catName/filter/@catId">
-                    <div class="" id="collapse1One">
-                    <input type="hidden" asp-for="SelectedFilterItems" value="" />
-                    @foreach (var item in Model.Features)
-                    {
-                    <div class="col-lg-12 mb-0 mb-lg-0">
-                    <div class="accordion accordion-sm without-bg mb-1" id="accordion_@item.Name">
-                    <div class="card card-default">
-                    <div class="card-header">
-                    <h4 class="card-title m-0">
-                    <a class="accordion-toggle collapsed" data-bs-toggle="collapse" data-bs-parent="#accordion_@item.Name" href="#collapse11_@item.Id" aria-expanded="false">
-                    @item.Name
-                    <i class="icon-arrow-down icons float-end"></i>
-                    </a>
-
-                    </h4>
-                    <hr style="margin:0px;" />
-                    </div>
-                    <div id="collapse11_@item.Id" class="collapse" style="padding-left:20px;">
-                    @foreach (var itemFD in item.FeatureDescriptions)
-                    {
-                    <div class="checkbox-custom checkbox-default">
-                    <input name="filterinput" type="checkbox" data-fetureval="@itemFD.FeatureId" value="@itemFD.Id" id="@itemFD.FeatureDesc">
-                    <label for="@itemFD.FeatureDesc">@itemFD.FeatureDesc</label>
-                    </div>
-                    }
-
-                    </div>
-                    </div>
-                    </div>
-
-                    </div>
-
-
-                    }
-
-                    <button type="submit" id="filterbutton" class="btn btn-modern btn-sm mb-2 btn-primary btn-outline btn-arrow-effect-1">Uygula<i class="fas fa-arrow-right ms-2"></i></button>
-                    </div>
-                    </form>
-                    </aside>*@
             </div>
             @if (Model.Products != null && Model.Products.Count > 0)
             {
@@ -101,15 +46,9 @@
                                         <meta itemprop="availability" content="https://schema.org/InStock" />
                                         <meta itemprop="priceCurrency" content="TL" />
                                         <div class="product-thumb-info border-0 mb-3">
-
-                                            <div class="addtocart-btn-wrapper">
-                                                <a href="/" class="text-decoration-none addtocart-btn" title="Teklif Al">
-                                                    <i class="icon-briefcase icons"></i>
-                                                </a>
-                                            </div>
                                             <a href="/Urun/@StringProcess.ClearString(item.Name)/@item.Id">
                                                 <div class="product-thumb-info-image">
-                                                    <img alt="@item.Name" class="img-fluid" src="@StaticDetails.GetImage(item.ImagePath)">
+                                                    <img alt="@item.Name" class="img-fluid lazyloaded" src="@StaticDetails.GetImage(item.ImagePath)" data-src="@StaticDetails.GetImage(item.ImagePath)">
 
                                                 </div>
                                             </a>
@@ -133,17 +72,8 @@
                             }
 
                         </div>
-                        @*<div class="row mt-4">
-                            <div class="col">
-                            <ul class="pagination float-end">
-                            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
-                            </ul>
-                            </div>
-                            </div>*@
+
+                        @await Component.InvokeAsync("Pagination", Model.PagedData)
                         <div class="bounce-loader"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>
                     </div>
                 </div>
@@ -163,7 +93,8 @@
 <script src="~/assets/vendor/jquery/jquery.min.js"></script>
 <script>
     $('#filterbutton').css('display', 'none');
-    var mainUrl = "https://localhost:44396/";
+    //var mainUrl = @StaticDetails.currentsiteUrl;
+
     var screenwidht = $(window).width();
     if (992 > screenwidht) {
         $('#filtericon').css('display', 'block');

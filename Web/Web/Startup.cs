@@ -24,7 +24,6 @@ namespace Web
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
@@ -35,7 +34,6 @@ namespace Web
             services.AddHttpClient();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -53,17 +51,16 @@ namespace Web
             app.Use(async (context, next) =>
             {
                 context.Response.Headers.Add("X-Xss-Protection", "1; mode=block");
+                context.Response.Headers.Remove("Server");
                 string path = context.Request.Path;
 
                 if (path.EndsWith(".css") || path.EndsWith(".js") || path.EndsWith(".webp") || path.EndsWith(".png"))
                 {
-                    //Set css and js files to be cached for 7 days
-                    TimeSpan maxAge = new TimeSpan(7, 0, 0, 0);     //7 days
+                    TimeSpan maxAge = new TimeSpan(7, 0, 0, 0);
                     context.Response.Headers.Append("Cache-Control", "max-age=" + maxAge.TotalSeconds.ToString("0"));
-                }               
+                }
                 else
                 {
-                    //Request for views fall here.
                     context.Response.Headers.Append("Cache-Control", "no-cache");
                     context.Response.Headers.Append("Cache-Control", "private, no-store");
                 }
@@ -78,7 +75,7 @@ namespace Web
             });
             app.UseResponseCaching();
             app.UseStaticFiles();
-            //app.UseXMLSitemap(env.ContentRootPath);
+            app.UseXMLSitemap(env.ContentRootPath);
             app.UseRouting();
 
             app.UseAuthorization();

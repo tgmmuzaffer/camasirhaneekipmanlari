@@ -18,25 +18,46 @@
         </div>
     </div>
     <div class="collapse" id="hiddenMap">
-        <div id="googlemaps" class="google-map map-style-1 m-0" style="height: 475px;">           
-            @*@Html.Raw(HttpUtility.HtmlDecode(Model.MapAdress))*@
+        <div id="googlemaps" class="google-map map-style-1 m-0" style="height: 475px;">
+            @Html.Raw(HttpUtility.HtmlDecode(Model.MapAdress))
         </div>
     </div>
+    @* <div class="footer-bg-color-2 footer-bottom-light-border">
+        <div class="container">
+        <div class="row justify-content-center text-center">
+        <div class="col py-2">
+        <a href="/" class="logo">
+        <img alt="logo" src="~/N_2.png" height="64">
+        </a>
+        </div>
+        </div>
+        </div>
+        </div>*@
     <div class="footer-bg-color-2 footer-bottom-light-border">
         <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col py-5">
+            <div class="row justify-content-center text-center py-3">
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                   <p class="mb-0">
+                        <strong class="text-color-hover-white text-uppercase"><a href="/Site-Haritasi">Site Haritası</a></strong>
+                    </p>
+                </div>
+                <div class="col-md-4 text-center mb-4 mb-md-0">
                     <a href="/" class="logo">
                         <img alt="logo" src="~/N_2.png" height="64">
                     </a>
                 </div>
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                   <p class="mb-0">
+                        <strong class="text-color-hover-white text-uppercase"><a href="/Sikca-Sorulan-Sorular">S.S.S</a></strong>
+                    </p>
+                </div>
             </div>
+
         </div>
     </div>
-
     <div class="footer-bg-color-2 footer-bottom-light-border">
         <div class="container">
-            <div class="row justify-content-center text-center py-5">
+            <div class="row justify-content-center text-center py-3">
                 <div class="col-md-4 text-center mb-4 mb-md-0">
                     <i class="fas fa-map-marker-alt text-9 text-color-light mb-3 mt-2"></i>
                     <p class="mb-0">
@@ -47,7 +68,7 @@
                 <div class="col-md-4 text-center mb-4 mb-md-0">
                     <i class="far fa-clock text-9 text-color-light mb-3 mt-2"></i>
                     <p class="mb-0">
-                        <strong class="text-color-light text-uppercase">Çalışma Gün ve Saatleri</strong>                   
+                        <strong class="text-color-light text-uppercase">Çalışma Gün ve Saatleri</strong>
                         <span class="d-block text-2 p-relative bottom-3">@Model.WorkDay1&nbsp;/&nbsp;@Model.WorkHour1</span>
                         <span class="d-block text-2 p-relative bottom-3">@Model.WorkDay2&nbsp;/&nbsp;@Model.WorkHour2</span>
                         <span class="d-block text-2 p-relative bottom-3">@Model.WorkDay3&nbsp;/&nbsp;@Model.WorkHour3</span>

@@ -135,6 +135,7 @@ namespace Web.Controllers
                 ProductDto tempDto = new();
                 tempDto.Features = productDto.Features;
                 tempDto.SelectedFilterfeatureDescItems = productDto.SelectedFilterfeatureDescItems;
+                tempDto.SelectedFilterfeatureItems = productDto.SelectedFilterfeatureItems;
                 if (productDto.Products != null && productDto.Products.Count > 0)
                 {
                     tempDto.Products = productDto.Products.Where(a => a.FeatureDescriptions.Count > 0).ToList();

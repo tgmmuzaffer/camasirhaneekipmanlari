@@ -2,8 +2,7 @@
 @model ProductDto
 @{
 
-    //Model.FilterUrl = "/Urunler/filter";
-    Model.FilterUrl = "/Arama";
+    //Model.FilterUrl = "/Arama";
 
     var breadcrumbdata = TempData["BreadCrumb"];
     var page = TempData["Page"];
@@ -39,11 +38,11 @@
                                 <div class="product mb-0">
                                     <div class="product-thumb-info border-0 mb-3">
 
-                                        <div class="addtocart-btn-wrapper">
+                                      @*  <div class="addtocart-btn-wrapper">
                                             <a href="/" class="text-decoration-none addtocart-btn" title="Teklif Al">
                                                 <i class="icon-briefcase icons"></i>
                                             </a>
-                                        </div>
+                                        </div>*@
                                         <a href="/Urun/@StringProcess.ClearString(item.Name)/@item.Id">
                                             <div class="product-thumb-info-image">
                                                 <img alt="@item.Name" class="img-fluid" src="@StaticDetails.GetImage(item.ImagePath)">
@@ -86,7 +85,7 @@
 </div>
 <script src="~/assets/vendor/jquery/jquery.min.js"></script>
 <script>
-    var mainUrl = "https://localhost:44396/";
+    //var mainUrl = @StaticDetails.currentsiteUrl;
     var screenwidht = $(window).width();
     if (992 > screenwidht) {
         $('#filtericon').css('display', 'block');

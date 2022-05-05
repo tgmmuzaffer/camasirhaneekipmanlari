@@ -10,6 +10,9 @@ namespace Web.Repository.IRepository
     {
         Task<Product> GetProduct(string url);
         Task<List<Product>> GetProductsWithcategoryFilter(string url);
+        Task<ProductDto> GetProductsWithPagedSubCategory(string url);
+        Task<ProductDto> GetProductsWithPagedCategory(string url);
+        Task<ProductDto> GetPagedProducts(string url);
         Task<List<Product>> GetProducts(string url);
     }
 }

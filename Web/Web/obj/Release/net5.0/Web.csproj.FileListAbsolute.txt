@@ -389,3 +389,4 @@ C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\Web.pdb
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\Web.genruntimeconfig.cache
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\ref\Web.dll
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Release\net5.0\Razor\Views\Home\Sitemap.cshtml.g.cs

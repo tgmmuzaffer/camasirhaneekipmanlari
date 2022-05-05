@@ -1,0 +1,70 @@
+﻿@using Web.Models.Dtos
+@model PagedData
+<style>
+    .totalpage{
+        align-self:center;
+        padding:5px;
+    }
+</style>
+<div class="row mt-4">
+    <div class="col">
+        <ul class="pagination float-end shorizontal">
+            @{
+                int t0 = Model.CurrentPage - 2;
+                int t1 = Model.CurrentPage - 1;
+                int t2 = Model.CurrentPage + 1;
+                int t3 = Model.CurrentPage + 2;
+                int _base = 1;
+                if (Model.HasPrevious)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Model.RouteSegment@_base">
+                            <i class="fas fa-angle-left"></i>
+                        </a>
+                    </li>
+                }
+                if (t0 > 0)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Model.RouteSegment@t0">@t0</a>
+                    </li>
+                }
+                if (t1 > 0)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Model.RouteSegment@t1">@t1</a>
+                    </li>
+                }
+                <li class="page-item active">
+                    <a class="page-link" href="@Model.RouteSegment@Model.CurrentPage">@Model.CurrentPage</a>
+                </li>
+                if (t2 > 0 && t2<=Model.TotalPages)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Model.RouteSegment@t2">@t2</a>
+                    </li>
+                }
+                if (t3 > 0 && t3<=Model.TotalPages)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Model.RouteSegment@t3">@t3</a>
+                    </li>
+                }
+                if (Model.TotalPages != Model.CurrentPage)
+                {
+                     <li class="totalpage">
+                        <a class="" href="@Model.RouteSegment@Model.TotalPages">... @Model.TotalPages</a>
+                    </li>
+                }
+                if (Model.HasNext)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Model.RouteSegment@Model.TotalPages">
+                            <i class="fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</div>

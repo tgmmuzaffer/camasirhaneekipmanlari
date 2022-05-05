@@ -18,22 +18,20 @@
 
 <aside class="sidebar">
     @await Component.InvokeAsync("TextSearch", Model)
-
-    @* <form action="page-search-results.html" method="get">
-        <div class="input-group mb-3 pb-1">
-        <input class="form-control text-1" placeholder="Search..." name="s" id="s" type="text">
-        <button type="submit" class="btn btn-dark text-1 p-2"><i class="fas fa-search m-2"></i></button>
-        </div>
-        </form>*@
     @if (Model != null && Model.Features != null && Model.Features.Count > 0)
     {
-        <h3 id="filtertitle" class="card-title mb-3"> Filtre <i id="filtericon" class="icon-arrow-down icons float-end filtericon "></i></h3>
+        <h3 id="filtertitle" class="card-title mb-3">
+            Filtre <i id="filtericon" class="icon-arrow-down icons float-end filtericon "></i>
+        </h3>
     }
-    @*<form id="filterform" method="post" action="/@catName/filter/@catId">*@
-    <form id="filterform" method="post" action="@Model.FilterUrl" asp-antiforgery="true">
+    @*<form id="filterform" method="post" action="@Model.FilterUrl" asp-antiforgery="true">*@
+    <form id="filterform" method="post" action="/Urunler/filter" asp-antiforgery="true">
         <div class="" id="collapse1One">
             <input type="hidden" asp-for="SelectedFilterfeatureDescItems" value="" />
             <input type="hidden" asp-for="SelectedFilterfeatureItems" value="" />
+            <input type="hidden" asp-for="FilterAreaId" value="@Model.FilterAreaId" />
+            <input type="hidden" asp-for="FilterArea" value="@Model.FilterArea" />
+            <input type="hidden" asp-for="FilterFetureId" value="@Model.FilterFetureId" />
             @foreach (var item in Model.Features)
             {
                 <div class="col-lg-12 mb-0 mb-lg-0">
@@ -52,7 +50,6 @@
                             <div id="@StringProcess.ClearString(item.Name)" class="collapse featurebar" style="padding-left:20px;">
                                 @foreach (var itemFD in item.FeatureDescriptions)
                                 {
-
                                     <div class="checkbox-custom checkbox-default">
                                         @if (checkedFilterItems != null && checkedFilterItems.Contains(itemFD.Id))
                                         {
@@ -72,12 +69,5 @@
             }
             <button type="submit" id="filterbutton" class="btn btn-modern btn-sm mb-2 btn-primary btn-outline btn-arrow-effect-1">Uygula<i class="fas fa-arrow-right ms-2"></i></button>
         </div>
-
-        @*<button id="filterbutton" data-catname-val="@StringProcess.ClearString(catName)" data-catId-val="@catId" class="btn btn-modern btn-sm mb-2 btn-primary btn-outline btn-arrow-effect-1">Uygula<i class="fas fa-arrow-right ms-2"></i></button>*@
-
-
     </form>
-
-
-
 </aside>

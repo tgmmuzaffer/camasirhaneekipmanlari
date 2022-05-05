@@ -23,8 +23,10 @@ namespace Web.Controllers
         private readonly IReferanceRepo _referanceRepo;
         private readonly IWebHostEnvironment _env;
         private readonly IActionDescriptorCollectionProvider _actionDescriptorCollectionProvider;
+        private readonly IFeatureDescriptionRepo _featureDescriptionRepo;
 
-        public HomeController(ILogger<HomeController> logger ,ICategoryRepo categoryRepo, ISliderRepo sliderRepo, IBlogRepo blogRepo, IReferanceRepo referanceRepo, IWebHostEnvironment env, IActionDescriptorCollectionProvider actionDescriptorCollectionProvider)
+
+        public HomeController(ILogger<HomeController> logger ,ICategoryRepo categoryRepo, ISliderRepo sliderRepo, IBlogRepo blogRepo, IReferanceRepo referanceRepo, IWebHostEnvironment env, IActionDescriptorCollectionProvider actionDescriptorCollectionProvider, IFeatureDescriptionRepo featureDescriptionRepo)
         {
             _logger = logger;
             _categoryRepo = categoryRepo;
@@ -33,10 +35,11 @@ namespace Web.Controllers
             _referanceRepo = referanceRepo;
             _env = env;
             _actionDescriptorCollectionProvider = actionDescriptorCollectionProvider;
+            _featureDescriptionRepo = featureDescriptionRepo;
 
         }
 
-        //[ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
         public async Task<IActionResult> Index()
         {
            var categories = await _categoryRepo.GetList(StaticDetails.getAllCategoriesName);
@@ -52,23 +55,33 @@ namespace Web.Controllers
 
             return View();
         }
-        [Route("/Sitemap")]
-        public IActionResult Sitemap()
-        
+        [Route("/Sikca-Sorulan-Sorular")]
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
+        public IActionResult Faq()
         {
-            //.Where(ad => ad.AttributeRouteInfo != null && ad.AttributeRouteInfo.Name != null)
 
-            //var routes = _actionDescriptorCollectionProvider.ActionDescriptors.Items.ToList();
-              
-            //var list = new List<SitemapNode>();
+            TempData["Page"] = "Sıkça Sorulan Sorular";
+            TempData["BreadCrumb"] = new List<string> { "Sıkça Sorulan Sorular" };
+            return View();
+        }
 
-            //list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.8, Url = "https://codingwithesty.com/serilog-mongodb-in-asp-net-core", Frequency = SitemapFrequency.Daily });
-            //list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.8, Url = "https://codingwithesty.com/logging-in-asp-net-core", Frequency = SitemapFrequency.Yearly });
-            //list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://codingwithesty.com/robots-txt-in-asp-net-core", Frequency = SitemapFrequency.Monthly });
-            //list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://codingwithesty.com/versioning-asp.net-core-apiIs-with-swagger", Frequency = SitemapFrequency.Weekly });
-            //list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.4, Url = "https://codingwithesty.com/configuring-swagger-asp-net-core-web-api", Frequency = SitemapFrequency.Never });
 
-            //new SitemapDocument().CreateSitemapXML(list, _env.ContentRootPath);
+
+        [Route("/Site-Haritasi")]
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
+        public async Task<IActionResult> Sitemap()        
+        {
+            var categorydata = await _categoryRepo.GetList(StaticDetails.getAllCategories);
+            var branddata = await _featureDescriptionRepo.GetList(StaticDetails.getAllfeatureDescriptionsByFeatureId + 1);
+            var blog = await _blogRepo.GetList(StaticDetails.getAllBlogs);
+
+            ViewBag.CategoryDatas = categorydata;
+            ViewBag.BrandsDatas = branddata;
+            ViewBag.Blog = blog;
+            TempData["Page"] = "Site Haritası";
+            TempData["BreadCrumb"] = new List<string> { "Site Haritası" };
+
+
             return View();
         }
 

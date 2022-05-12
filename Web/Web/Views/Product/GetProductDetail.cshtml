@@ -2,10 +2,6 @@
 @using Web.Models.Dtos
 @model Product
 @{
-    //var catName = Model.Select(a => a.Category.Name).FirstOrDefault();
-    //var catId = Model.Select(a => a.Category.Id).FirstOrDefault();
-    //Model.FilterUrl = $"/Urunler/{catName}/filter/{catId}";
-
     var breadcrumbdata = TempData["BreadCrumb"];
     var page = TempData["Page"];
     string _page = page.ToString();
@@ -19,11 +15,11 @@
         breadcrumb.Data = breadcrumbdata as List<string>;
     }
 }
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
 <div itemscope="" itemtype="https://schema.org/WebPage">
     <span style="display:none;">@_page</span>
 
@@ -44,8 +40,8 @@
     }
     <div itemtype="https://schema.org/Product" itemscope>
         <meta itemprop="name" content="@Model.Name" />
-                                    <link itemprop="image" href="@StaticDetails.GetImage(Model.ImagePath)" />
-                                    <meta itemprop="description" content="@Model.ShortDesc" />
+        <link itemprop="image" href="@StaticDetails.GetImage(Model.ImagePath)" />
+        <meta itemprop="description" content="@Model.ShortDesc" />
         <div class="row">
             <div class="col-md-5 order-md-2 mb-4 mb-lg-0 appear-animation animated fadeInLeftShorter appear-animation-visible" data-appear-animation="fadeInLeftShorter" style="animation-delay: 100ms; text-align: -webkit-center;">
                 <img src="@StaticDetails.GetImage(Model.ImagePath)" class="img-fluid" alt="@Model.Name">
@@ -79,12 +75,34 @@
                     </div>
                 }
                 <hr class="solid my-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="900" style="animation-delay: 900ms;">
-                <a href="#offer" class="btn btn-outline btn-primary mb-2" style="float:left;margin:10px;">Teklif Al</a>
+                <div style="display:inline-flex">
+                    <a href="#offer" class="btn btn-outline btn-primary mb-2" style="float:left;margin:10px;">Teklif Al</a>
+                    <p style="display: inline-flex;align-self: flex-end;margin-bottom: revert;"> ya da </p>
+                    <a href="tel:+90 532 205 31 76" class="btn btn-outline btn-primary mb-2" style="float:left;margin:10px;"><i class="icon-call-in icons"></i> Direkt Ara</a>
+                </div>
+
             </div>
         </div>
 
     </div>
 </div>
+
+
+    @await Component.InvokeAsync("CallUsSticy")
+
+
+
+@*<div class="icon-bar">
+    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="#" class="google"><i class="fa fa-google"></i></a>
+    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+    <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+</div>
+*@
+
+
+
 <hr id="offer" class="solid my-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="900" style="animation-delay: 900ms;">
 @await Component.InvokeAsync("GetOfferForm", Model.Name)
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -39,8 +39,12 @@
             <li><i class="far fa-clock top-6"></i> @Model.WorkDay3 : @Model.WorkHour3</li>
         </ul>
     </div>
-    <div class="appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="950" style="animation-delay: 1000ms;">
-        <h4 class="pt-5"> <strong>@Model.ContactTitle</strong></h4>
-        <p class="lead mb-0 text-4"> @Html.Raw(Model.ContactContent)</p>
-    </div>
+    @if (!string.IsNullOrEmpty(Model.ContactContent) || !string.IsNullOrEmpty(Model.ContactTitle))
+    {
+        <div class="appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="950" style="animation-delay: 1000ms;">
+            <h4 class="pt-5"> <strong>@Model.ContactTitle</strong></h4>
+            <p class="lead mb-0 text-4"> @Html.Raw(Model.ContactContent)</p>
+        </div>
+    }
+
 </div>

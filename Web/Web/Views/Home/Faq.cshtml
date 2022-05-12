@@ -1,4 +1,5 @@
 ﻿@using Web.Models.Dtos
+@model List<Faq>
 @{
 
     var breadcrumbdata = TempData["BreadCrumb"];
@@ -20,40 +21,22 @@
 
         <div class="row">
             <div class="col">
-
-                <h2 class="font-weight-normal text-7 mb-2">Frequently Asked <strong class="font-weight-extra-bold">Questions</strong></h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In eu libero ligula.</p>
+               
+                <h2 class="font-weight-normal text-7 mb-2"> <strong class="font-weight-extra-bold">Sıkça</strong> Sorulan Sorular</h2>
+                <p class="lead">Sıkça sorulan soruları sizin için topladık. Buradaki cevaplar sizin sorularınızı cevaplamıyorsa <a href="tel:+90 532 205 31 76">burdan</a> biziz arayarak detaylı bilgi edinebilirsiniz.</p>
 
                 <hr class="solid my-5">
 
                 <div class="toggle toggle-primary m-0" data-plugin-toggle="">
-                    <section class="toggle active" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <a class="toggle-title" itemprop="name">Curabitur eget leo at velit imperdiet vague iaculis vitaes?</a>
-                        <div class="toggle-content" style="display: block;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <p itemprop="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget leo at velit imperdiet varius. In eu ipsum vitae velit congue iaculis vitae at risus. Nullam tortor nunc, bibendum vitae semper a, volutpat eget massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla, orci sit amet posuere auctor, orci eros pellentesque odio, nec pellentesque erat ligula nec massa. Aenean consequat lorem ut felis ullamcorper posuere gravida tellus faucibus. Maecenas dolor elit, pulvinar eu vehicula eu, consequat et lacus. Duis et purus ipsum. In auctor mattis ipsum id molestie. Donec risus nulla, fringilla a rhoncus vitae, semper a massa. Vivamus ullamcorper, enim sit amet consequat laoreet, tortor tortor dictum urna, ut egestas urna ipsum nec libero. Nulla justo leo, molestie vel tempor nec, egestas at massa. Aenean pulvinar, felis porttitor iaculis pulvinar, odio orci sodales odio, ac pulvinar felis quam sit.</p>
-                        </div>
-                    </section>
-
+                     @foreach (var item in Model)
+                {
                     <section class="toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <a class="toggle-title" itemprop="name">Curabitur eget leo at velit imperdiet viaculis vitaes?</a>
-                        <div class="toggle-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <p itemprop="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget leo at velit imperdiet varius. In eu ipsum vitae velit congue iaculis vitae at risus. Nullam tortor nunc, bibendum vitae semper a, volutpat eget massa.</p>
+                        <a class="toggle-title" itemprop="name">@item.Title</a>
+                        <div class="toggle-content" style="display: none;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">&nbsp;&nbsp;&nbsp;@item.Description</p>
                         </div>
                     </section>
-
-                    <section class="toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <a class="toggle-title" itemprop="name">Curabitur eget leo at velit imperdiet varius iaculis vitaes?</a>
-                        <div class="toggle-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <p itemprop="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget leo at velit imperdiet varius. In eu ipsum vitae velit congue iaculis vitae at risus. Nullam tortor nunc, bibendum vitae semper a, volutpat eget massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla, orci sit amet posuere auctor, orci eros pellentesque odio, nec pellentesque erat ligula nec massa. Aenean consequat lorem ut felis ullamcorper posuere gravida tellus faucibus. Maecenas dolor elit, pulvinar eu vehicula eu, consequat et lacus. Duis et purus ipsum. In auctor mattis ipsum id molestie. Donec risus nulla, fringilla a rhoncus vitae, semper a massa. Vivamus ullamcorper, enim sit amet consequat laoreet, tortor tortor dictum urna, ut egestas urna ipsum nec libero. Nulla justo leo, molestie vel tempor nec, egestas at massa. Aenean pulvinar, felis porttitor iaculis pulvinar, odio orci sodales odio, ac pulvinar felis quam sit.</p>
-                        </div>
-                    </section>
-
-                    <section class="toggle" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <a class="toggle-title" itemprop="name">Curabitur eget leo at velit imperdiet vague iaculis vitaes?</a>
-                        <div class="toggle-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <p itemprop="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget leo at velit imperdiet varius. In eu ipsum vitae velit congue iaculis vitae at risus. Nullam tortor nunc, bibendum vitae semper a, volutpat eget massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla, orci sit amet posuere auctor, orci eros pellentesque odio, nec pellentesque erat ligula nec massa. Aenean consequat lorem ut felis ullamcorper posuere gravida tellus faucibus. Maecenas dolor elit, pulvinar eu vehicula eu, consequat et lacus. Duis et purus ipsum. In auctor mattis ipsum id molestie. Donec risus nulla, fringilla a rhoncus vitae, semper a massa. Vivamus ullamcorper, enim sit amet consequat laoreet, tortor tortor dictum urna, ut egestas urna ipsum nec libero. Nulla justo leo, molestie vel tempor nec, egestas at massa. Aenean pulvinar, felis porttitor iaculis pulvinar, odio orci sodales odio, ac pulvinar felis quam sit.</p>
-                        </div>
-                    </section>
+                }
                 </div>
 
             </div>

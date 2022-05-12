@@ -15,10 +15,10 @@ namespace Web.Models
 
 
 
-        public static string mainUrl = "https://localhost:44396/";
-        //public static string mainUrl = "https://api.camasirhaneekipmanlari.com/";
-        //public static string currentsiteUrl = "https://camasirhaneekipmanlari.com/";
-        public static string currentsiteUrl = "https://localhost:44396/";
+        //public static string mainUrl = "https://localhost:44396/";
+        public static string mainUrl = "https://api.camasirhaneekipmanlari.com/";
+        public static string currentsiteUrl = "https://camasirhaneekipmanlari.com/";
+        //public static string currentsiteUrl = "https://localhost:44396/";
         //image
         public static string image = "webpImages/";
         //categories
@@ -54,6 +54,10 @@ namespace Web.Models
         public static string getAllFeCatsByCatId = mainUrl + "api/fecat/getAllFeCatsByCatId";
         //referance
         public static string getAllReferances = mainUrl + "api/referance/getAllReferances";
+        //industries
+        public static string getIndustries = mainUrl + "api/industry/getIndustries";
+        //faq
+        public static string getAllFaqs = mainUrl + "api/faq/getAllFaqs";
 
 
         public static string GetImage(string imageName)

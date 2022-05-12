@@ -11,13 +11,13 @@
     <div class="header-nav justify-content-start header-nav-line header-nav-bottom-line">
         <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-2 header-nav-main-sub-effect-1">
             <nav class="collapse">
-                <ul class="nav nav-pills" id="mainNav">
+                <ul class="nav nav-pills" id="mainNav" style="flex-wrap:nowrap !important">
                     <li class="dropdown">
-                        <a class="dropdown-item dropdown-toggle" href="/">
-                            Anasayfa
+                        <a class="dropdown-item dropdown-toggle" href="/Hakkimizda">
+                            Hakkımızda
                         </a>
                     </li>
-                    <li class="dropdown dropdown-mega">
+                    <li class="dropdown">
 
                         <a class="dropdown-item dropdown-toggle" href="/Urunler">
                             Ürünler
@@ -25,31 +25,28 @@
                         @if (categorydata != null)
                         {
                             <ul class="dropdown-menu">
-                                <li>
-                                    <div class="dropdown-mega-content">
-                                        <div class="row">
-                                            @foreach (var itemCat in categorydata)
-                                            {
-                                                <div class="col-lg-3">
-                                                    <span class="dropdown-mega-sub-title">@itemCat.Name</span>
-                                                    <ul class="dropdown-mega-sub-nav">
-                                                        @foreach (var itemSubCat in itemCat.SubCategories)
-                                                        {
-                                                            <li>
-                                                                <a class="dropdown-item" href="/Urunler/@StringProcess.GetPath(itemCat.Name)/@StringProcess.GetPath(itemSubCat.Name)/@itemSubCat.Id/1">
-                                                                    @itemSubCat.Name
-                                                                </a>
-                                                            </li>
-
-                                                        }
-                                                    </ul>
-                                                </div>
-                                            }
-                                        </div>
-                                    </div>
-                                </li>
+                                @foreach (var itemCat in categorydata.Where(a => a.Id == 1))
+                                {
+                                    @foreach (var itemSubCat in itemCat.SubCategories)
+                                    {
+                                        <li>
+                                            <a class="dropdown-item" href="/Urunler/@StringProcess.GetPath(itemCat.Name)/@StringProcess.GetPath(itemSubCat.Name)/@itemSubCat.Id/1">
+                                                @itemSubCat.Name
+                                            </a>
+                                        </li>
+                                    }
+                                    <li>
+                                        <a class="dropdown-item" href="/Urunler/Kimyasallar/2/1">
+                                            Kimyasallar
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/Urunler/Sarf-Malzemeler/3/1">
+                                            Sarf Malzemeler
+                                        </a>
+                                    </li>
+                                }
                             </ul>
-
                         }
                     </li>
                     <li class="dropdown">
@@ -70,6 +67,11 @@
                     </li>
 
 
+                    <li class="dropdown">
+                        <a class="dropdown-item dropdown-toggle" href="/Sektorler">
+                            Sektörler
+                        </a>
+                    </li>
                     <li class="dropdown">
                         <a class="dropdown-item dropdown-toggle" href="/Blog">
                             Blog

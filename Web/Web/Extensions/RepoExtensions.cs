@@ -23,6 +23,8 @@ namespace Web.Extensions
             services.AddScoped<IContactRepo, ContactRepo>();
             services.AddScoped<IBlogRepo, BlogRepo>();
             services.AddScoped<IReferanceRepo, ReferanceRepo>();
+            services.AddScoped<IIndustryRepo, IndustryRepo>();
+            services.AddScoped<IFaqRepo, FaqRepo>();
 
         }
     }

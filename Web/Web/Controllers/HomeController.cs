@@ -24,9 +24,10 @@ namespace Web.Controllers
         private readonly IWebHostEnvironment _env;
         private readonly IActionDescriptorCollectionProvider _actionDescriptorCollectionProvider;
         private readonly IFeatureDescriptionRepo _featureDescriptionRepo;
+        private readonly IFaqRepo _faqRepo;
 
 
-        public HomeController(ILogger<HomeController> logger ,ICategoryRepo categoryRepo, ISliderRepo sliderRepo, IBlogRepo blogRepo, IReferanceRepo referanceRepo, IWebHostEnvironment env, IActionDescriptorCollectionProvider actionDescriptorCollectionProvider, IFeatureDescriptionRepo featureDescriptionRepo)
+        public HomeController(ILogger<HomeController> logger ,ICategoryRepo categoryRepo, ISliderRepo sliderRepo, IBlogRepo blogRepo, IReferanceRepo referanceRepo, IWebHostEnvironment env, IActionDescriptorCollectionProvider actionDescriptorCollectionProvider, IFeatureDescriptionRepo featureDescriptionRepo, IFaqRepo faqRepo)
         {
             _logger = logger;
             _categoryRepo = categoryRepo;
@@ -36,7 +37,7 @@ namespace Web.Controllers
             _env = env;
             _actionDescriptorCollectionProvider = actionDescriptorCollectionProvider;
             _featureDescriptionRepo = featureDescriptionRepo;
-
+            _faqRepo = faqRepo;
         }
 
         [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
@@ -57,12 +58,13 @@ namespace Web.Controllers
         }
         [Route("/Sikca-Sorulan-Sorular")]
         [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
-        public IActionResult Faq()
+        public async Task<IActionResult> Faq()
         {
+            var faq = await _faqRepo.GetList(StaticDetails.getAllFaqs);
 
             TempData["Page"] = "Sıkça Sorulan Sorular";
             TempData["BreadCrumb"] = new List<string> { "Sıkça Sorulan Sorular" };
-            return View();
+            return View(faq);
         }
 
 
@@ -83,6 +85,17 @@ namespace Web.Controllers
 
 
             return View();
+        }
+
+        [Route("/Referanslar")]
+        [ResponseCache(Duration = 2650000, Location = ResponseCacheLocation.Any)]
+        public async Task<IActionResult> Referances()
+        {
+            var referances = await _referanceRepo.GetList(StaticDetails.getAllReferances);
+
+            TempData["Page"] = "Referanslar";
+            TempData["BreadCrumb"] = new List<string> { "Referanslar" };
+            return View(referances);
         }
 
     }

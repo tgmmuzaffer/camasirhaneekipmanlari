@@ -392,3 +392,6 @@ C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\re
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Home\Sitemap.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Home\Faq.cshtml.g.cs
 C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Shared\Components\Pagination\Default.cshtml.g.cs
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Industry\Industries.cshtml.g.cs
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Shared\Components\CallUsSticy\Default.cshtml.g.cs
+C:\Users\MONSTER\source\repos\camasirhaneekipmanlari\Web\Web\obj\Debug\net5.0\Razor\Views\Home\Referances.cshtml.g.cs

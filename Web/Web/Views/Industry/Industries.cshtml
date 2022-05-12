@@ -1,0 +1,48 @@
+﻿@using Newtonsoft.Json
+@using Web.Models.Dtos
+@model List<IndustryDto>
+@{
+    var breadcrumbdata = TempData["BreadCrumb"];
+    var page = TempData["Page"];
+    string _page = page.ToString();
+
+    TempData["Title"] = page;
+    Breadcrumb breadcrumb = new();
+    if (breadcrumbdata != null && page != null)
+    {
+        breadcrumb.Page = page.ToString();
+        breadcrumb.Data = breadcrumbdata as List<string>;
+    }
+
+}
+
+<div itemscope="" itemtype="https://schema.org/WebPage">
+    <span style="display:none;">@_page</span>
+    <span style="display:none;">Tüm Ürünler</span>
+    @await Component.InvokeAsync("BreadCrumb", breadcrumb)
+    <div id="examples" class="container py-2">
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <div class="row mt-lg-5">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-lg-4 mb-3-5">
+                                   <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-lighten thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom">
+                                    <span class="thumb-info-wrapper">
+                                        <img src="@StaticDetails.GetImage(item.ImagePath)" class="img-fluid" alt="">
+                                        <span class="thumb-info-title">
+                                            <span class="thumb-info-inner line-height-1">@item.Description</span>
+                                        </span>
+                                    </span>
+                                    </span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

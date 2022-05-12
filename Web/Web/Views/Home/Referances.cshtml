@@ -1,0 +1,42 @@
+﻿@using Newtonsoft.Json
+@using Web.Models.Dtos
+@model List<Referance>
+@{
+    var breadcrumbdata = TempData["BreadCrumb"];
+    var page = TempData["Page"];
+    string _page = page.ToString();
+
+    TempData["Title"] = page;
+    Breadcrumb breadcrumb = new();
+    if (breadcrumbdata != null && page != null)
+    {
+        breadcrumb.Page = page.ToString();
+        breadcrumb.Data = breadcrumbdata as List<string>;
+    }
+
+}
+
+<div itemscope="" itemtype="https://schema.org/WebPage">
+    <span style="display:none;">@_page</span>
+    @await Component.InvokeAsync("BreadCrumb", breadcrumb)
+    <div class="container py-4">
+        <div class="row">
+            <div class="col">
+                <div class="blog-posts">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-md-4 col-lg-3">
+                                <div class="post-image">
+                                    <a href="#">
+                                        <img src="@StaticDetails.GetImage(item.ImageName)" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="@item.ImageName">
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

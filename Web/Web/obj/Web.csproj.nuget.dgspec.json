@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MONSTER\\source\\repos\\camasirhaneekipmanlari\\Web\\Web\\Web.csproj": {}
+    "C:\\Users\\MONSTER\\Desktop\\camasırhane\\camasirhaneekipmanlari\\Web\\Web\\Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MONSTER\\source\\repos\\camasirhaneekipmanlari\\Web\\Web\\Web.csproj": {
+    "C:\\Users\\MONSTER\\Desktop\\camasırhane\\camasirhaneekipmanlari\\Web\\Web\\Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MONSTER\\source\\repos\\camasirhaneekipmanlari\\Web\\Web\\Web.csproj",
+        "projectUniqueName": "C:\\Users\\MONSTER\\Desktop\\camasırhane\\camasirhaneekipmanlari\\Web\\Web\\Web.csproj",
         "projectName": "Web",
-        "projectPath": "C:\\Users\\MONSTER\\source\\repos\\camasirhaneekipmanlari\\Web\\Web\\Web.csproj",
+        "projectPath": "C:\\Users\\MONSTER\\Desktop\\camasırhane\\camasirhaneekipmanlari\\Web\\Web\\Web.csproj",
         "packagesPath": "C:\\Users\\MONSTER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MONSTER\\source\\repos\\camasirhaneekipmanlari\\Web\\Web\\obj\\",
+        "outputPath": "C:\\Users\\MONSTER\\Desktop\\camasırhane\\camasirhaneekipmanlari\\Web\\Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -94,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -67,14 +67,14 @@ namespace Web.Controllers
                     BodyBuilder bodyBuilder = new();
                     SmtpClient smtp = new();
                     bodyBuilder.HtmlBody = "Talebinizi aldık.En kısa sürede dönüş yapılacaktır.";
-                    MailboxAddress from = new("Camaşırhane Ekipmanları", "info@camasirhaneekipmanlari.com");
+                    MailboxAddress from = new("Camaşırhane Ekipmanları", "xyz@abc.com");
                     MailboxAddress to = new(Encoding.UTF8, mail.EMail, mail.EMail);
                     m.From.Add(from);
                     m.Body = bodyBuilder.ToMessageBody();
                     m.Subject = "Bilgilendirme";
                     m.To.Add(to);
-                    smtp.Connect("win5.wlsrv.com", 465, true);
-                    smtp.Authenticate("ugur.yalcin@camasirhaneekipmanlari.com", "$q1q9T3u");
+                    smtp.Connect("asd", 123, true);
+                    smtp.Authenticate("xyz1@abc.com", "password");
                     smtp.Send(m);
                     smtp.Disconnect(true);
                     smtp.Dispose();
@@ -128,8 +128,8 @@ namespace Web.Controllers
                     mG.Body = bodyBuilderG.ToMessageBody();
                     mG.Subject = mail.Subject;
                     mG.To.Add(toG);
-                    smtpG.Connect("win5.wlsrv.com", 465, true);
-                    smtpG.Authenticate("info@camasirhaneekipmanlari.com", "Yamahar123+-*/");
+                    smtpG.Connect("asd", 123, true);
+                    smtpG.Authenticate("xyz1@abc.com", "password");
                     smtpG.Send(mG);
                     smtpG.Disconnect(true);
                     smtpG.Dispose();
